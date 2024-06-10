@@ -39,8 +39,8 @@ dependencies:
     specifier: ^1.0.4
     version: 1.0.4
   astro-navbar:
-    specifier: ^2.3.0
-    version: 2.3.0
+    specifier: ^2.3.3
+    version: 2.3.3
   astro-seo:
     specifier: ^0.8.0
     version: 0.8.0
@@ -433,7 +433,7 @@ packages:
     resolution: {integrity: sha512-Txumi3td7J4A/xTTwlssKieHKTGl3j4A1tglBx72auZ49YK7ePY6XZricgIg9mnZT4xPfA+UPCUdnhRuEFDL+w==}
     requiresBuild: true
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
     optional: true
 
@@ -1406,8 +1406,8 @@ packages:
       - supports-color
     dev: false
 
-  /astro-navbar@2.3.0:
-    resolution: {integrity: sha512-5xnSuEuFM27FyWguZNRWv210P8J4MHCabkj+oHd94x+96peL3QRXWKpupGyHoo4Vdz4aNYe1GolcoOJRoJb7cA==}
+  /astro-navbar@2.3.3:
+    resolution: {integrity: sha512-WAiQUVh3fS+bUw1oDcWpddFj30z3VgmMDmSjpU78idCXiV5t4KtlBvKV0mE/+hpcGLK0ji1evvCbk2wQ7wphyQ==}
     dev: false
 
   /astro-seo@0.8.0:
@@ -4792,8 +4792,8 @@ packages:
         optional: true
     dev: false
 
-  /tslib@2.6.2:
-    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+  /tslib@2.6.3:
+    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
     requiresBuild: true
     dev: true
     optional: true

@@ -22,6 +22,14 @@ If you are already have github access, you can click on the "Fork" button above 
 
 Alternatively, you can clone the project directly from the github repo to your local system. make sure you have github repo access. Send an email to hello@web3templates.com to get github repo access.
 
+
+## Required Version
+npm -> 9.6.5
+node -> 22.13.1
+
+## Documentation
+[Web3Templates](https://docs.web3templates.com/astro/installation-astro)
+
 ### 1. Clone the repo
 
 ```bash

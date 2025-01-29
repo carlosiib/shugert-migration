@@ -1,0 +1,33 @@
+---
+import Badge from "@components/ui/badge.astro";
+import { Picture } from "astro:assets";
+import FeatureImg1 from "../assets/features/6.png";
+import FeatureImg2 from "../assets/features/2.png";
+import { Icon } from "astro-icon/components";
+import Link from "@components/ui/link.astro";
+
+---
+<div class="relative section">
+  <div class="container flex flex-wrap lg:flex-nowrap">
+    <!-- Image Section -->
+    <div class="lg:w-6/12 w-full order-first lg:mb-0 mb-6">
+      <img
+        src="/images/shugert/custom-machine-learning.png"
+        alt="Custom Machine Learning Solutions"
+        class="w-full"
+      />
+    </div>
+    <!-- Spacer -->
+    <div class="lg:w-1/12 hidden lg:block"></div>
+    <!-- Content Section -->
+    <div class="lg:w-6/12 w-full flex flex-col justify-center">
+      <div class="text-sm uppercase text-gray-500 mb-2">How can we help you?</div>
+      <h2 class="text-2xl lg:text-3xl font-bold leading-tight mb-4">
+        Custom machine learning solutions for real-life problems
+      </h2>
+      <p class="text-lg font-light text-gray-700">
+        Our machine learning team has helped 20+ top companies solve critical business problems with practical machine learning solutions
+      </p>
+    </div>
+  </div>
+</div>

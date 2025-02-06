@@ -1,0 +1,45 @@
+---
+/*Component Params
+  Header - Title of the component, this is inserted inside an h2
+  Text - This text is displayed below the header as a p
+  imageArray - An array whose elements include an image and altText attributes
+*/
+const {header,text,imageArray} = Astro.props;
+
+interface Props {
+  header: string;
+  text: string;
+  imageArray: Array<any>;  
+}
+
+
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from 'astro';
+
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/shugert/*.{jpeg,jpg,png,gif}');
+
+imageArray.forEach(item => {
+  if (!images[item.src]) throw new Error(`"${item.src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+});
+
+
+---
+<div class="mt-24 max-w-3xl mx-auto flex flex-col items-center justify-center">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-4 text-center">
+    {header}
+  </h2>
+  <p class="text-lg mt-4 text-slate-600 text-center [text-wrap:pretty]">
+    {text}
+  </p>
+</div>
+
+<div class="max-w-screen-xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-8 md:gap-16">
+  {
+    imageArray.map((item) => (
+      <div class="transform hover:scale-75 transition ease-[cubic-bezier(0.075, 0.82, 0.165, 1)] duration-1000">
+        <Picture src={images[item.src]()} alt={item.alt}/>
+      </div>
+    ))
+  }
+</div>

@@ -8,15 +8,20 @@ import Hero from "@components/hero.astro";
 import Logos from "@components/logos.astro";
 import Testimonials from "@components/testimonials.astro";
 import Layout from "@layouts/Layout.astro";
+import CustomMachineLearningSolutions from "@components/custom-machine-learning-solutions.astro";
+import FeatureMarketing from "@components/feature-marketing.astro";
+import FeatureQualityControl from "@components/feature-quality-control.astro";
 ---
 
 <Layout footerMargin={false}>
   <Hero />
   <Container>
-    <Logos />
     <FeatureAlt />
+    <Logos />
+    <FeatureMarketing/>
   </Container>
-  <Testimonials />
+
+  <FeatureQualityControl />
   <Container>
     <FeatureGrid />
     <Features />

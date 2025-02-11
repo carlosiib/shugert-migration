@@ -1,0 +1,59 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+import servicesImage from "/src/assets/shugert/Services_Shugert.png";
+
+import type { ImageMetadata } from "astro";
+
+const { sectionInfo, imageLoad } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/shugert/*.{jpeg,jpg,png,gif}"
+);
+
+if (!images[sectionInfo.image])
+  throw new Error(
+    `"${sectionInfo.image}" does not exist in glob: "src/assets/shugert/*.{jpeg,jpg,png,gif}"`
+  );
+---
+
+<Container>
+  <main class="grid lg:grid-cols-5 place-items-center relative">
+    <div class="max-w-sm md:max-w-max lg:col-span-2 place-self-start mt-10">
+      <hgroup>
+        <h3 class="text-sm [text-wrap:balance] text-start">
+          {sectionInfo.category}
+        </h3>
+        <h1 class="font-bold lg:tracking-tight lg:text-start lg:text-5xl">
+          {sectionInfo.header}
+        </h1>
+        <h2 class="text-xl mt-4 max-w-lg [text-wrap:balance] text-start">
+          {sectionInfo.mainText}
+        </h2>
+      </hgroup>
+
+      <ul class="grid grid-cols-2 gap-9 mt-[48px]">
+        {
+          sectionInfo.grid.map((value) => (
+            <li>
+              <h4 class="font-medium text-xl">{value.title}</h4>
+              <p>{value.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="py-3 lg:col-span-2 lg:-mr-44">
+      <Image
+        src={images[sectionInfo.image]()}
+        alt={sectionInfo.imageAlt}
+        sizes="(max-width: 600px) 100vw, 50vw"
+        widths={[240, 540, 720]}
+        loading={imageLoad}
+        fetchpriority="high"
+      />
+    </div>
+  </main>
+</Container>

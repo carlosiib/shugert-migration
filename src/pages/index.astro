@@ -13,6 +13,7 @@ import FeatureMarketing from "@components/feature-marketing.astro";
 import FeatureQualityControl from "@components/feature-quality-control.astro";
 import CurrentProjects from "@components/current-projects.astro";
 import WeAreDevs from "@components/we-are-devs.astro";
+import OurServices from "@components/our-services.astro";
 ---
 
 <Layout footerMargin={false}>
@@ -20,10 +21,12 @@ import WeAreDevs from "@components/we-are-devs.astro";
   <Container>
     <FeatureAlt />
     <Logos />
-    <FeatureMarketing/>
+    <FeatureMarketing />
   </Container>
-
-
+  <Container>
+    <OurServices />
+  </Container>
+  <Testimonials />
   <FeatureQualityControl />
   <CurrentProjects/>
   <WeAreDevs/>

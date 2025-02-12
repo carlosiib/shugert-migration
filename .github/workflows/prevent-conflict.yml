@@ -1,0 +1,22 @@
+name: Prevent Merge if Conflicts Exist
+on:
+  pull_request:
+    branches:
+      - main  # ✅ Only run when merging into main
+
+jobs:
+  check-conflicts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Check for conflicts
+        run: |
+          git fetch origin main
+          if ! git merge-base --is-ancestor origin/main HEAD; then
+            echo "❌ Merge conflict detected. Please resolve conflicts before merging."
+            exit 1
+          fi

@@ -36,7 +36,8 @@ const { page } = Astro.props;
     <Sectionhead>
       <Fragment slot="title">Learning Center</Fragment>
       <Fragment slot="desc">
-        Explore our latest articles on Shopify tutorials, marketing analytics, SEO, and CRO tips for eCommerce businesses.
+        Explore our latest articles on Shopify tutorials, marketing analytics,
+        SEO, and CRO tips for eCommerce businesses.
       </Fragment>
     </Sectionhead>
     <main class="mt-16">
@@ -72,7 +73,8 @@ const { page } = Astro.props;
                       <span class="text-gray-400">• </span>
                       <time
                         class="text-gray-400"
-                        datetime={post.data.publishDate.toISOString()}>
+                        datetime={post.data.publishDate.toISOString()}
+                      >
                         {post.data.publishDate.toDateString()}
                       </time>
                     </div>

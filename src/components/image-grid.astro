@@ -16,18 +16,20 @@ import { Picture } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/shugert/*.{jpeg,jpg,png,gif}"
+  "/src/assets/shugert/*.{jpeg,jpg,png,gif}",
 );
 
 imageArray.forEach((item) => {
   if (!images[item.src])
     throw new Error(
-      `"${item.src}" does not exist in glob: "src/assets/shugert/*.{jpeg,jpg,png,gif}"`
+      `"${item.src}" does not exist in glob: "src/assets/shugert/*.{jpeg,jpg,png,gif}"`,
     );
 });
 ---
 
-<div class="mt-24 mb-[48px] max-w-3xl mx-auto flex flex-col items-center justify-center px-[25px]">
+<div
+  class="mt-24 mb-[48px] max-w-3xl mx-auto flex flex-col items-center justify-center px-[25px]"
+>
   <h2 class="text-4xl font-bold text-center">
     {header}
   </h2>
@@ -37,7 +39,8 @@ imageArray.forEach((item) => {
 </div>
 
 <div
-  class="max-w-[1200px] mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-[48px] px-[25px] justify-items-center">
+  class="max-w-[1200px] mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-[48px] px-[25px] justify-items-center"
+>
   {
     imageArray.map((item) => (
       <div
@@ -45,7 +48,8 @@ imageArray.forEach((item) => {
         filter hover:saturate-[120%] 
         box-shadow hover:shadow-[5px_5px_20px_5px_rgba(0,0,0,0.07)] 
        transition-all ease-[cubic-bezier(0.075,0.82,0.165,1)]
-        duration-1000 w-fit border border-solid border-radius rounded-[5px] border-[hsla(0,0%,60.7%,0.3)]">
+        duration-1000 w-fit border border-solid border-radius rounded-[5px] border-[hsla(0,0%,60.7%,0.3)]"
+      >
         <Picture src={images[item.src]()} alt={item.alt} />
       </div>
     ))

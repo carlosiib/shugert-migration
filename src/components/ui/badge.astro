@@ -11,7 +11,7 @@ const colors = {
   indigo: "bg-indigo-100 border-indigo-200 border text-indigo-600",
   orange: "bg-orange-100 border-orange-200 border text-orange-600",
   purple: "bg-purple-100 border-purple-200 border text-purple-600",
-  blue: "bg-neutral-50 border-neutral-600 border text-neutral-950"
+  blue: "bg-neutral-50 border-neutral-600 border text-neutral-950",
 };
 type Color = keyof typeof colors;
 ---
@@ -21,6 +21,7 @@ type Color = keyof typeof colors;
     colors[color],
     className,
     "rounded-full text-xs font-medium px-3 py-1 ",
-  ]}>
+  ]}
+>
   <slot />
 </span>

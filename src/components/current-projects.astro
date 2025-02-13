@@ -1,37 +1,36 @@
 ---
-
-const header = "Some of our current projects"
-const text = "Our mix of marketing agency and production company allows us to handle short and long term projects. From web development to creation of unique pieces, high volume content, editorial and video productions."; 
+const header = "Some of our current projects";
+const text =
+  "Our mix of marketing agency and production company allows us to handle short and long term projects. From web development to creation of unique pieces, high volume content, editorial and video productions.";
 
 const imageArray = [
-    {
-        src:"/src/assets/shugert/ETCS_Thumb_Home.png",
-        alt:"Envirotech",
-    },
-    {
-        src:"/src/assets/shugert/AISaturdays_Thumb_Home.png",
-        alt:"SaturdaysAI",
-    },
-    {
-        src:"/src/assets/shugert/Yello_thumb_home.png",
-        alt:"Yello",
-    },
-    {
-        src:"/src/assets/shugert/Boletaje_Thumb_Home.png",
-        alt:"Boletaje.com",
-    },
-    {
-        src:"/src/assets/shugert/BIN_Thumb_Home.png",
-        alt:"Bien Informado",
-    },
-    {
-        src:"/src/assets/shugert/WV_Thumb_home.png",
-        alt:"World Vision Project",
-    }
-]
+  {
+    src: "/src/assets/shugert/ETCS_Thumb_Home.png",
+    alt: "Envirotech",
+  },
+  {
+    src: "/src/assets/shugert/AISaturdays_Thumb_Home.png",
+    alt: "SaturdaysAI",
+  },
+  {
+    src: "/src/assets/shugert/Yello_thumb_home.png",
+    alt: "Yello",
+  },
+  {
+    src: "/src/assets/shugert/Boletaje_Thumb_Home.png",
+    alt: "Boletaje.com",
+  },
+  {
+    src: "/src/assets/shugert/BIN_Thumb_Home.png",
+    alt: "Bien Informado",
+  },
+  {
+    src: "/src/assets/shugert/WV_Thumb_home.png",
+    alt: "World Vision Project",
+  },
+];
 
-import ImageGrid from "./image-grid.astro"
+import ImageGrid from "./image-grid.astro";
 ---
 
 <ImageGrid header={header} text={text} imageArray={imageArray} />
-

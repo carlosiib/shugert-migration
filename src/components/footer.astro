@@ -4,7 +4,6 @@ import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
 import logoFooter from "../assets/shugert/shugert_2020_white.png";
 
-
 const { margin } = Astro.props;
 
 // Import images
@@ -87,41 +86,44 @@ const footermenu = {
     },
   ],
 };
-
-
 ---
 
-<footer
-  class:list={[
-    "py-14 bg-[#000]",
-    margin && "mt-10",
-  ]}>
+<footer class:list={["py-14 bg-[#000]", margin && "mt-10"]}>
   <Container>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-32">
       <div class="sm:col-span-2 md:col-span-3 lg:col-span-2">
-        <a href="/" class="text-lg flex items-center"
-          >
+        <a href="/" class="text-lg flex items-center">
           <div class="w-56">
             <Picture
-            src={logoFooter}
-            alt="Feature Image"
-            formats={["avif", "webp"]}
-            loading="lazy"
-          />
-        </div>
+              src={logoFooter}
+              alt="Feature Image"
+              formats={["avif", "webp"]}
+              loading="lazy"
+            />
+          </div>
         </a>
         <div class="pt-8 grid grid-cols-2 md:grid-cols-3 gap-3">
-          {images.map((src, index) => (
-            <Picture  src={src} alt={`Footer image ${index + 1}`} class="w-full object-contain rounded-lg shadow-lg" />
-          ))}
+          {
+            images.map((src, index) => (
+              <Picture
+                src={src}
+                alt={`Footer image ${index + 1}`}
+                class="w-full object-contain rounded-lg shadow-lg"
+              />
+            ))
+          }
         </div>
       </div>
       <div class="sm:col-span-3 lg:col-span-3">
         <div>
           <h3 class="font-medium text-3xl text-white text-left">
-            We collaborate with ambitious brands and people; we’d love to build something great together.
+            We collaborate with ambitious brands and people; we’d love to build
+            something great together.
           </h3>
-          <a href="mailto:hello@shugert.com.mx" class="text-white text-3xl font-semibold hover:underline">
+          <a
+            href="mailto:hello@shugert.com.mx"
+            class="text-white text-3xl font-semibold hover:underline"
+          >
             hello@shugert.com.mx
           </a>
         </div>
@@ -134,19 +136,21 @@ const footermenu = {
                 United States<br />
               </p>
               <p class="text-white">
-                Spain —<br />C/ de Cristóbal de Moura, 49<br />Barcelona,
-                08019
+                Spain —<br />C/ de Cristóbal de Moura, 49<br />Barcelona, 08019
               </p>
             </div>
           </div>
           <div class="w-1/2">
             <h3 class="font-bold text-xl text-white">Let's talk</h3>
             <div class="flex flex-col mt-3">
-              <a href="mailto:hello@shugert.com.mx" class="text-white text-lg font-semibold hover:underline">
+              <a
+                href="mailto:hello@shugert.com.mx"
+                class="text-white text-lg font-semibold hover:underline"
+              >
                 hello@shugert.com.mx
               </a>
             </div>
-          </div> 
+          </div>
           <div>
             <h3 class="font-bold text-xl text-white">Company</h3>
             <div class="flex flex-col mt-3">
@@ -154,13 +158,14 @@ const footermenu = {
                 footermenu.company.map((item) => (
                   <a
                     href={item.path || "#"}
-                    class="py-2 text-sm text-white hover:text-[#bbe1fa]">
+                    class="py-2 text-sm text-white hover:text-[#bbe1fa]"
+                  >
                     {item.title}
                   </a>
                 ))
               }
             </div>
-          </div> 
+          </div>
         </div>
         <!-- <div class="flex flex-col mt-3">
           {
@@ -174,16 +179,14 @@ const footermenu = {
           }
         </div> -->
       </div>
-
-      
     </div>
-    
   </Container>
 
-  <div class="mt-8 pt-4 px-5 ">
+  <div class="mt-8 pt-4 px-5">
     <Container>
       <p class="text-center text-sm text-slate-600 [text-wrap:balance]">
-        Copyright © {new Date().getFullYear()} Shugert Marketing & Analytics. All rights reserved.
+        Copyright © {new Date().getFullYear()} Shugert Marketing & Analytics. All
+        rights reserved.
       </p>
       <!-- <p class="text-center text-xs text-slate-600 mt-2">
         <a href="/terms" class="hover:text-indigo-500"> Terms</a> ・ <a

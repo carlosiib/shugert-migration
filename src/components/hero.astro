@@ -1,39 +1,42 @@
 ---
+import Container from "@components/container.astro";
+import Link from "@components/ui/link.astro";
 import { Picture } from "astro:assets";
 import heroImage from "../assets/shugert/Marketing-Analytics.png";
-import Link from "@components/ui/link.astro";
-import Container from "@components/container.astro";
 ---
 
 <div class="overflow-x-clip">
   <Container>
-    <main
-      class="grid lg:grid-cols-5 place-items-center relative">
-
+    <main class="grid lg:grid-cols-5 place-items-center relative">
       <div class="max-w-sm md:max-w-max lg:col-span-2 place-self-start mt-10">
         <hgroup>
-        <h3
-        class="text-sm text-slate-600 [text-wrap:balance] text-start">
-          Transforming Digital Marketing With Artificial Intelligence
-        </h3>
-        <h1
-          class="text-xl lg:text-3xl font-bold lg:tracking-tight  lg:text-start">
-          Marketing Analytics customized to your business needs
-        </h1>
-        <h2 class="text-lg mt-4 max-w-lg text-slate-600 [text-wrap:balance] text-start">
-          At <strong>Shugert</strong>, we have the appropriate dissemination and measurement tools so that your product or service reaches all possible audiences.
-        </h2>
-      </hgroup>
+          <h3 class="text-sm text-slate-600 [text-wrap:balance] text-start">
+            Transforming Digital Marketing With Artificial Intelligence
+          </h3>
+          <h1
+            class="text-xl lg:text-3xl font-bold lg:tracking-tight lg:text-start"
+          >
+            Marketing Analytics customized to your business needs
+          </h1>
+          <h2
+            class="text-lg mt-4 max-w-lg text-slate-600 [text-wrap:balance] text-start"
+          >
+            At <strong>Shugert</strong>, we have the appropriate dissemination
+            and measurement tools so that your product or service reaches all
+            possible audiences.
+          </h2>
+        </hgroup>
         <div
-          class="mt-6 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-3">
+          class="mt-6 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-3"
+        >
           <Link
             href="https://web3templates.com/templates/astroship-pro-astro-saas-website-template"
             target="_blank"
             class="flex gap-1 items-center justify-center"
-            rel="noopener">
+            rel="noopener"
+          >
             Free Consultation
           </Link>
-          
         </div>
       </div>
       <div class="py-3 lg:col-span-3 lg:-mr-44">

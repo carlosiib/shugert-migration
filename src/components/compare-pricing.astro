@@ -166,10 +166,12 @@ type Color = keyof typeof colors;
 
   {/* Desktop Version */}
   <div
-    class="mt-8 overflow-x-auto lg:overflow-visible w-full border border-slate-200 rounded-md">
+    class="mt-8 overflow-x-auto lg:overflow-visible w-full border border-slate-200 rounded-md"
+  >
     <div class="min-w-max">
       <div
-        class="sticky top-0 py-6 bg-white border-b border-slate-200 rounded-t-md">
+        class="sticky top-0 py-6 bg-white border-b border-slate-200 rounded-t-md"
+      >
         <div class="grid grid-cols-5 gap-0 items-center bg-white">
           <div class="text-slate-500 px-5">Compare Plans</div>
           {
@@ -185,7 +187,8 @@ type Color = keyof typeof colors;
                     href="#"
                     block
                     size="sm"
-                    style={plan.popular ? "primary" : "outline"}>
+                    style={plan.popular ? "primary" : "outline"}
+                  >
                     Get Started
                   </Link>
                 </div>

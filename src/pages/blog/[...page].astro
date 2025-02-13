@@ -1,11 +1,11 @@
 ---
-import type { PaginateFunction } from "astro";
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
-import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
 import Pagination from "@components/pagination.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import type { PaginateFunction } from "astro";
+import { Picture } from "astro:assets";
+import { getCollection } from "astro:content";
 
 // Sort content entries by publication date
 
@@ -72,7 +72,8 @@ const { page } = Astro.props;
                       <span class="text-gray-400">• </span>
                       <time
                         class="text-gray-400"
-                        datetime={post.data.publishDate.toISOString()}>
+                        datetime={post.data.publishDate.toISOString()}
+                      >
                         {post.data.publishDate.toDateString()}
                       </time>
                     </div>

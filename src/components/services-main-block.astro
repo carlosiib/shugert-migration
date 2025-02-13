@@ -1,26 +1,26 @@
 ---
 import Container from "@components/container.astro";
-import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
-import servicesImage from "/src/assets/shugert/Services_Shugert.png";
 
 import type { ImageMetadata } from "astro";
 
 const { sectionInfo, imageLoad } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/shugert/*.{jpeg,jpg,png,gif}"
+  "/src/assets/shugert/*.{jpeg,jpg,png,gif}",
 );
 
 if (!images[sectionInfo.image])
   throw new Error(
-    `"${sectionInfo.image}" does not exist in glob: "src/assets/shugert/*.{jpeg,jpg,png,gif}"`
+    `"${sectionInfo.image}" does not exist in glob: "src/assets/shugert/*.{jpeg,jpg,png,gif}"`,
   );
 ---
 
 <Container>
-  <main class="grid lg:grid-cols-5 place-items-center relative justify-items-center pt-[45px] pb-[45px]">
-    <div class=" md:max-w-max lg:col-span-2 place-self-start mt-10">
+  <main
+    class="grid lg:grid-cols-5 place-items-center relative justify-items-center pt-[45px] pb-[45px]"
+  >
+    <div class="md:max-w-max lg:col-span-2 place-self-start mt-10">
       <hgroup>
         <h3 class="text-sm [text-wrap:balance] text-start">
           {sectionInfo.category}

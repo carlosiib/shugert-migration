@@ -1,10 +1,10 @@
 ---
 import Container from "@components/container.astro";
+import Separator from "@components/separator.astro";
+import ServicesBlock from "@components/services-main-block.astro";
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
 import servicesImage from "/src/assets/shugert/Services_Shugert.png";
-import ServicesBlock from "@components/services-main-block.astro";
-import Separator from "@components/separator.astro";
 
 import shopifyExpert from "@assets/shugert/shopify-experts.png";
 
@@ -147,7 +147,8 @@ const customPub = {
 <Layout title="Services">
   <Container>
     <main
-      class="grid lg:grid-cols-7 place-items-center relative justify-items-center">
+      class="grid lg:grid-cols-7 place-items-center relative justify-items-center"
+    >
       <div class="md:max-w-max lg:col-span-3 place-self-start mt-10">
         <hgroup>
           <h3 class="text-sm [text-wrap:balance] text-start">What We Offer</h3>
@@ -192,25 +193,27 @@ const customPub = {
       <a href="#">Learn More</a>
       <br /><br />
     </div>
-      And of course, we are:
-    <a class="max-w-[200px] inline-block" href="https://experts.shopify.com/shugert-marketing">
+    And of course, we are:
+    <a
+      class="max-w-[200px] inline-block"
+      href="https://experts.shopify.com/shugert-marketing"
+    >
       <Image
-            src={shopifyExpert}
-            alt="Shopify Expert"
-            widths={[240, 540, 720]}
-            loading="eager"
-            fetchpriority="high"
-          />
+        src={shopifyExpert}
+        alt="Shopify Expert"
+        widths={[240, 540, 720]}
+        loading="eager"
+        fetchpriority="high"
+      />
     </a>
-   
   </Container>
-  <Separator/>
+  <Separator />
 
   <ServicesBlock sectionInfo={machineLearn} imageLoad="lazy" />
-  <Separator/>
+  <Separator />
   <ServicesBlock sectionInfo={customContent} imageLoad="lazy" />
-  <Separator/>
+  <Separator />
   <ServicesBlock sectionInfo={socialNet} imageLoad="lazy" />
-  <Separator/>
+  <Separator />
   <ServicesBlock sectionInfo={customPub} imageLoad="lazy" />
 </Layout>

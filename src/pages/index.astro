@@ -1,19 +1,18 @@
 ---
 import Container from "@components/container.astro";
 import Cta from "@components/cta.astro";
+import CurrentProjects from "@components/current-projects.astro";
 import FeatureAlt from "@components/feature-alt.astro";
 import FeatureGrid from "@components/feature-grid.astro";
+import FeatureMarketing from "@components/feature-marketing.astro";
+import FeatureQualityControl from "@components/feature-quality-control.astro";
 import Features from "@components/features.astro";
 import Hero from "@components/hero.astro";
 import Logos from "@components/logos.astro";
-import Testimonials from "@components/testimonials.astro";
-import Layout from "@layouts/Layout.astro";
-import CustomMachineLearningSolutions from "@components/custom-machine-learning-solutions.astro";
-import FeatureMarketing from "@components/feature-marketing.astro";
-import FeatureQualityControl from "@components/feature-quality-control.astro";
-import CurrentProjects from "@components/current-projects.astro";
-import WeAreDevs from "@components/we-are-devs.astro";
 import OurServices from "@components/our-services.astro";
+import Testimonials from "@components/testimonials.astro";
+import WeAreDevs from "@components/we-are-devs.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout footerMargin={false}>
@@ -28,8 +27,8 @@ import OurServices from "@components/our-services.astro";
   </Container>
   <Testimonials />
   <FeatureQualityControl />
-  <CurrentProjects/>
-  <WeAreDevs/>
+  <CurrentProjects />
+  <WeAreDevs />
   <Container>
     <FeatureGrid />
     <Features />

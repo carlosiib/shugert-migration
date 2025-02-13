@@ -1,0 +1,45 @@
+name: Prettier Format Check and Auto-commit
+
+on:
+  push:
+    branches:
+      - main  
+    paths:
+      - '**/*.astro'  # Run only when .astro files are changed
+  pull_request:
+    paths:
+      - '**/*.astro'
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.12.2'  #Fernando node version instance** 
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Run Prettier
+        run: |
+          npx prettier --plugin prettier-plugin-astro --write "src/**/*.astro"
+      
+      - name: Check for changes
+        run: |
+          git diff --exit-code || echo "Changes detected, committing..."
+
+      - name: Commit changes if any
+        if: ${{ steps.run_prettier.outputs.changes_detected == 'true' }}
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "chore: auto-format .astro files"
+          git push

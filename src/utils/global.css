@@ -1,9 +1,11 @@
-:root{
+@import "tailwindcss";
+
+:root {
   --primary-color: #3282b8;
-  --tertiary-color: #f0fdff:
+  --tertiary-color: #f0fdff: ;
 }
 
 body {
-  font-family:'Gothic A1', sans-serif;
-  line-height:1.5;
+  font-family: "Gothic A1", sans-serif;
+  line-height: 1.5;
 }

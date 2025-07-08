@@ -147,14 +147,15 @@ const customPub = {
 <Layout title="Services">
   <Container>
     <main
-      class="grid lg:grid-cols-7 place-items-center relative justify-items-center">
-      <div class="md:max-w-max lg:col-span-3 place-self-start mt-10">
+      class="relative grid place-items-center justify-items-center lg:grid-cols-7"
+    >
+      <div class="mt-10 place-self-start md:max-w-max lg:col-span-3">
         <hgroup>
-          <h3 class="text-sm [text-wrap:balance] text-start">What We Offer</h3>
-          <h1 class="font-bold lg:tracking-tight lg:text-start text-5xl">
+          <h3 class="text-start text-sm [text-wrap:balance]">What We Offer</h3>
+          <h1 class="text-5xl font-bold lg:text-start lg:tracking-tight">
             Call us a production studio with a creative drive.
           </h1>
-          <h2 class="text-xl mt-4 lg:[text-wrap:balance] text-start">
+          <h2 class="mt-4 text-start text-xl lg:[text-wrap:balance]">
             Our work focused on efficiency, consistency and quality in both
             deliverables and service. We can help your business achieve its
             goals with a no BS approach to teamwork on making those goals a
@@ -163,7 +164,7 @@ const customPub = {
         </hgroup>
       </div>
 
-      <div class="py-3 lg:col-span-3 lg:-mr-44 max-w-[600px] mx-1">
+      <div class="mx-1 max-w-[600px] py-3 lg:col-span-3 lg:-mr-44">
         <Image
           src={servicesImage}
           alt="Services "
@@ -177,7 +178,7 @@ const customPub = {
   </Container>
 
   <ServicesBlock sectionInfo={webDev} imageLoad="eager" />
-  <Container class="text-xl mt-10">
+  <Container class="mt-10 text-xl">
     <div class="">
       Shugert is a collaborative web design and development studio designed to
       take the stress out of Shopify. With over a decade of experience as
@@ -192,25 +193,27 @@ const customPub = {
       <a href="#">Learn More</a>
       <br /><br />
     </div>
-      And of course, we are:
-    <a class="max-w-[200px] inline-block" href="https://experts.shopify.com/shugert-marketing">
+    And of course, we are:
+    <a
+      class="inline-block max-w-[200px]"
+      href="https://experts.shopify.com/shugert-marketing"
+    >
       <Image
-            src={shopifyExpert}
-            alt="Shopify Expert"
-            widths={[240, 540, 720]}
-            loading="eager"
-            fetchpriority="high"
-          />
+        src={shopifyExpert}
+        alt="Shopify Expert"
+        widths={[240, 540, 720]}
+        loading="eager"
+        fetchpriority="high"
+      />
     </a>
-   
   </Container>
-  <Separator/>
+  <Separator />
 
   <ServicesBlock sectionInfo={machineLearn} imageLoad="lazy" />
-  <Separator/>
+  <Separator />
   <ServicesBlock sectionInfo={customContent} imageLoad="lazy" />
-  <Separator/>
+  <Separator />
   <ServicesBlock sectionInfo={socialNet} imageLoad="lazy" />
-  <Separator/>
+  <Separator />
   <ServicesBlock sectionInfo={customPub} imageLoad="lazy" />
 </Layout>

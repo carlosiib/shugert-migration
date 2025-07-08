@@ -19,25 +19,27 @@ if (!images[sectionInfo.image])
 ---
 
 <Container>
-  <main class="grid lg:grid-cols-5 place-items-center relative justify-items-center pt-[45px] pb-[45px]">
-    <div class=" md:max-w-max lg:col-span-2 place-self-start mt-10">
+  <main
+    class="relative grid place-items-center justify-items-center pt-[45px] pb-[45px] lg:grid-cols-5"
+  >
+    <div class="mt-10 place-self-start md:max-w-max lg:col-span-2">
       <hgroup>
-        <h3 class="text-sm [text-wrap:balance] text-start">
+        <h3 class="text-start text-sm [text-wrap:balance]">
           {sectionInfo.category}
         </h3>
-        <h1 class="font-bold lg:tracking-tight lg:text-start text-5xl">
+        <h1 class="text-5xl font-bold lg:text-start lg:tracking-tight">
           {sectionInfo.header}
         </h1>
-        <h2 class="text-xl mt-4 lg:[text-wrap:balance] text-start">
+        <h2 class="mt-4 text-start text-xl lg:[text-wrap:balance]">
           {sectionInfo.mainText}
         </h2>
       </hgroup>
 
-      <ul class="grid grid-cols-2 gap-9 mt-[48px]">
+      <ul class="mt-[48px] grid grid-cols-2 gap-9">
         {
           sectionInfo.grid.map((value) => (
             <li>
-              <h4 class="font-medium text-xl">{value.title}</h4>
+              <h4 class="text-xl font-medium">{value.title}</h4>
               <p>{value.text}</p>
             </li>
           ))
@@ -45,7 +47,7 @@ if (!images[sectionInfo.image])
       </ul>
     </div>
 
-    <div class="py-3 lg:col-span-3 max-w-[600px] mx-1">
+    <div class="mx-1 max-w-[600px] py-3 lg:col-span-3">
       <Image
         src={images[sectionInfo.image]()}
         alt={sectionInfo.imageAlt}

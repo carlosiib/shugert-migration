@@ -76,7 +76,7 @@ const plans: Plan[] = [
       </Fragment>
     </Sectionhead>
 
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-screen-lg mt-12">
+    <div class="mx-auto mt-12 grid max-w-screen-lg gap-10 md:grid-cols-3">
       {plans.map((item) => <PricingComponent plan={item} />)}
     </div>
     <ComparePricing />

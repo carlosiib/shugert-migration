@@ -13,10 +13,10 @@ const { align = "center" } = Astro.props;
       </div>
     )
   }
-  <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+  <h1 class="text-4xl font-bold lg:text-5xl lg:tracking-tight">
     <slot name="title">Title</slot>
   </h1>
-  <p class="text-lg mt-4 text-slate-500 mx-auto max-w-xl">
+  <p class="mx-auto mt-4 max-w-xl text-lg text-slate-500">
     <slot name="desc">Some description goes here</slot>
   </p>
 </div>

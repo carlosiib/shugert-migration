@@ -14,10 +14,7 @@ interface Props {
   footerMargin?: boolean;
 }
 
-const canonicalURL = new URL(
-  Astro.url.pathname,
-  Astro.site
-).toString();
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
   "/opengraph.jpg",

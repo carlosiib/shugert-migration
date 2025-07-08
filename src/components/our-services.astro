@@ -4,41 +4,32 @@ import { Picture } from "astro:assets";
 import WebDesign from "../assets/services/web-design.png";
 ---
 
-<div class="relative section mt-24">
-  <div
-    class="container flex flex-wrap lg:flex-nowrap gap-4">
+<div class="section relative mt-24">
+  <div class="container flex flex-wrap gap-4 lg:flex-nowrap">
     <!-- Content Section -->
-    <div
-      class="lg:w-6/12 w-full flex flex-col justify-center">
-      <Badge color="blue" class="w-fit mb-4"
-        >Our services</Badge
-      >
-      <h2
-        class="text-2xl lg:text-3xl leading-tight font-black mb-4">
+    <div class="flex w-full flex-col justify-center lg:w-6/12">
+      <Badge color="blue" class="mb-4 w-fit">Our services</Badge>
+      <h2 class="mb-4 text-2xl leading-tight font-black lg:text-3xl">
         We are a comprehensive family of creatives
       </h2>
-      <p class="text-lg text-slate-600 [text-wrap:pretty]">
-        We handle various areas of graphic and digital
-        communication in order to offer you comprehensive
-        and appropriate solutions to enhance your brand or
-        product.
+      <p class="text-lg [text-wrap:pretty] text-slate-600">
+        We handle various areas of graphic and digital communication in order to
+        offer you comprehensive and appropriate solutions to enhance your brand
+        or product.
       </p>
     </div>
     <!-- Spacer -->
-    <div class="lg:w-1/12 hidden lg:block"></div>
+    <div class="hidden lg:block lg:w-1/12"></div>
 
     <!-- Image Section -->
-    <div
-      class="lg:w-6/12 grid place-items-center gap-4 w-full">
+    <div class="grid w-full place-items-center gap-4 lg:w-6/12">
       <Picture
         src={WebDesign}
         formats={["avif", "webp"]}
         alt="Web design solutions"
         loading="lazy"
       />
-      <p class="font-semibold">
-        Web Design and Development
-      </p>
+      <p class="font-semibold">Web Design and Development</p>
     </div>
   </div>
 </div>

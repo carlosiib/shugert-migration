@@ -9,6 +9,8 @@ import EmployeeImg from "../assets/employee.jpg";
 import Logos from "@components/logos.astro";
 import { Icon } from "astro-icon/components";
 import Cta from "@components/cta.astro";
+import Image from "astro/components/Image.astro";
+import AboutUsBanner from "@assets/shugert/AboutUs.png";
 
 // Filter team entries with 'draft: false' & date before current date
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
@@ -16,22 +18,31 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
 });
 ---
 
-<Layout title="About" footerMargin={false}>
+<Layout title="About Us" footerMargin={false}>
   <Container>
-    <Sectionhead>
-      <Fragment slot="badge">ABOUT US</Fragment>
-      <Fragment slot="title">We're Building Future</Fragment>
-      <Fragment slot="desc">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special..
-      </Fragment>
-    </Sectionhead>
-    <div class="mt-6 text-center">
-      <Link style="outline" size="sm" href="#" target="_blank" rel="noopener">
-        Learn more →
-      </Link>
-    </div>
+    <section class="flex flex-col items-stretch md:m-4 md:flex-row md:p-4">
+      <div class="md:p-5">
+        <h1 class="text-5xl font-bold lg:text-7xl">
+          We produce creative content & concrete results
+        </h1>
+        <p class="mt-4 max-w-xl text-lg text-black lg:text-xl">
+          We are a family of creators, graphic designers, writers, illustrators,
+          coders, animators, data scientists, digital marketing specialists, and
+          content generators. We create storytelling designed for your business
+          and a focused digital marketing strategy: this is the compass to find
+          your audience.
+        </p>
+      </div>
+      <div class="mt-10 md:mt-0">
+        <Picture
+          src={AboutUsBanner}
+          alt="About Us Banner"
+          formats={["avif", "webp"]}
+          loading="eager"
+          class="h-auto lg:max-w-xl"
+        />
+      </div>
+    </section>
     <div class="mt-16 border-y border-slate-100 py-6">
       <Logos />
     </div>

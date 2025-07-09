@@ -10,7 +10,10 @@ import Logos from "@components/logos.astro";
 import { Icon } from "astro-icon/components";
 import Cta from "@components/cta.astro";
 import Image from "astro/components/Image.astro";
+
 import AboutUsBanner from "@assets/shugert/AboutUs.png";
+import AboutUsEyeClosed from "@assets/shugert/aboutUS_eye_closed.png";
+import AboutUsEyeOpen from "@assets/shugert/aboutUS_eye_open.png";
 
 // Filter team entries with 'draft: false' & date before current date
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
@@ -21,7 +24,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
 <Layout title="About Us" footerMargin={false}>
   <Container>
     <section class="flex flex-col items-stretch md:m-4 md:flex-row md:p-4">
-      <div class="md:p-5">
+      <div class="place-self-center md:p-5">
         <h1 class="text-5xl font-bold lg:text-7xl">
           We produce creative content & concrete results
         </h1>
@@ -33,7 +36,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
           your audience.
         </p>
       </div>
-      <div class="mt-10 md:mt-0">
+      <div class="mt-10 place-self-center md:mt-0">
         <Picture
           src={AboutUsBanner}
           alt="About Us Banner"
@@ -43,61 +46,51 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
         />
       </div>
     </section>
-    <div class="mt-16 border-y border-slate-100 py-6">
-      <Logos />
-    </div>
+  </Container>
 
-    <div class="mx-auto mt-24 grid gap-10 sm:grid-cols-2">
-      <div class="relative">
-        <div
-          class="absolute top-1/3 right-0 -z-10 hidden h-96 w-96 rounded-full bg-purple-100 md:block"
-        >
+  <div class="mt-20 flex items-center justify-center bg-[#BBE1FA] p-8">
+    <Container>
+      <section class="flex flex-col items-stretch md:m-4 md:flex-row md:p-4">
+        <div class="group place-self-center md:mt-0 md:mr-10">
+          <Picture
+            src={AboutUsEyeClosed}
+            alt="About Us Eye Closed"
+            formats={["avif", "webp"]}
+            loading="eager"
+            class="block h-auto group-hover:hidden lg:max-w-xl"
+          />
+          <Picture
+            src={AboutUsEyeOpen}
+            alt="About Us Eye Open"
+            formats={["avif", "webp"]}
+            loading="eager"
+            class="hidden h-auto group-hover:block lg:max-w-xl"
+          />
         </div>
-        <div
-          class="absolute top-1/4 left-10 -z-10 hidden h-44 w-44 rounded-full bg-purple-100 md:block"
-        >
+        <div class="mt-10 place-self-center md:mt-0 md:p-5">
+          <h1 class="text-md mb-2 font-semibold tracking-tight text-black">
+            What do we do?
+          </h1>
+          <h1 class="text-2xl font-bold tracking-tight text-black">
+            Platform, content & distribution
+          </h1>
+          <p class="mx-auto mt-4 max-w-md text-lg text-black/70">
+            One solid streamlined process that starts with a stable, fast and
+            responsive website, a creative team on high quality custom content
+            and a dedicated team for distribution, SEO/ SEM, organic growth,
+            newsletters, etc…. the whole thing.
+          </p>
+          <div class="mt-5 flex">
+            <Link href="/portfolio">Explore our capabilities</Link>
+          </div>
         </div>
-        <Picture
-          formats={["avif", "webp"]}
-          src={EmployeeImg}
-          alt="Happy Team"
-          class="mx-auto w-full max-w-md rounded-xl shadow-2xl"
-          loading="lazy"
-        />
-      </div>
-      <div class="place-self-center">
-        <h2 class="-mt-2 text-5xl tracking-tight text-gray-800">
-          <span class="text-indigo-600">Our</span>
-          {" "}
-          <strong>Mission</strong>
-        </h2>
-        <p class="mt-4 max-w-xl text-lg leading-relaxed text-slate-500">
-          We're a multi-cultural team from around the world! We come from
-          diverse backgrounds, bringing different personalities, experiences and
-          skills to the job. This is what makes our team so special.
-        </p>
-        <ul class="mt-6 grid gap-y-4 text-left">
-          <li class="flex items-center gap-3 text-slate-800">
-            <Icon name="ph:check-circle-fill" class="h-5 w-5" />
+      </section>
+    </Container>
+  </div>
 
-            <span class="text-slate-600">Intelligent Task Management</span>
-          </li>
+  <!-- ! -->
 
-          <li class="flex items-center gap-3 text-slate-800">
-            <Icon name="ph:check-circle-fill" class="h-5 w-5" />
-
-            <span class="text-slate-600">Real-time Collaboration</span>
-          </li>
-
-          <li class="flex items-center gap-3 text-slate-800">
-            <Icon name="ph:check-circle-fill" class="h-5 w-5" />
-
-            <span class="text-slate-600">Data Security & Privacy</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+  <Container>
     <div class="mt-24">
       <h2 class="text-center text-4xl lg:text-5xl lg:tracking-tight">
         Core <span class="font-bold text-indigo-600">Team</span>
@@ -134,5 +127,4 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
       }
     </div>
   </Container>
-  <Cta />
 </Layout>

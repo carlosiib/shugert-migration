@@ -19,6 +19,122 @@ import AboutUsEyeOpen from "@assets/shugert/aboutUS_eye_open.png";
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
 });
+
+const ShugertAwardsAndRecognitions = [
+  {
+    text: "Top Mexico Shopify Development Companies",
+    urlText: "See Leaders Matrix Here",
+    url: "https://clutch.co/mx/developers/shopify/leaders-matrix",
+  },
+  {
+    text: "Top Mexico E-Commerce Developers",
+    urlText: "See Leaders Matrix Here",
+    url: "https://clutch.co/mx/developers/ecommerce/leaders-matrix",
+  },
+  {
+    text: "Best Social Media Marketing Agencies",
+    urlText: "Social Media Marketing Companies",
+    url: "https://www.designrush.com/agency/social-media-marketing",
+  },
+];
+
+const PastAwards = [
+  {
+    text: "Top B2B Service Providers in Mexico for 2020",
+    urlText: "See detailes here",
+    url: "https://clutch.co/press-releases/announced-top-b2b-service-providers-mexico-2020",
+  },
+  {
+    text: "Best SEO Companies in February 2021 according to DesignRush",
+    urlText: "Best SEO companies",
+    url: "https://www.designrush.com/agency/search-engine-optimization",
+  },
+  {
+    text: "MSc Samuel Noriega",
+    urlText: "Hacker Noon Contributor of the Year - NEURAL NETWORKS",
+    url: "https://noonies.tech/award/hacker-noon-contributor-of-the-year-neural-networks",
+  },
+  {
+    text: "",
+    urlText: "Top Shopify Website Designers Of 2020 according to DR",
+    url: "https://www.designrush.com/agency/shopify",
+  },
+  {
+    text: "",
+    urlText: "Top WordPress Developers Of 2020 according to DR",
+    url: "https://www.designrush.com/agency/wordpress-web-design",
+  },
+  {
+    text: "",
+    urlText: "Source: Yahoo Finance",
+    url: "https://finance.yahoo.com/news/best-ecommerce-software-development-companies-044500753.html",
+  },
+  {
+    text: "",
+    urlText: "Top Shopify Developers - 16 in the world! Source: Yahoo Finance",
+    url: "https://www.ecommercecompanies.com/shopify-developers/",
+  },
+  {
+    text: "",
+    urlText: "Best B2B Digital Marketing Agencies",
+    url: "https://topmarketingcompanies.com/b2b-digital-marketing-companies/",
+  },
+  {
+    text: "",
+    urlText: "Top E-Commerce Developers in Mexico 2020",
+    url: "https://clutch.co/mx/developers/ecommerce",
+  },
+  {
+    text: "",
+    urlText: "Top 30 Web Development Companies in Mexico 2020",
+    url: "https://themanifest.com/mx/web-development/companies",
+  },
+  {
+    text: "",
+    urlText: "Top Software Developers in Latin America",
+    url: "https://visualobjects.com/software-development/top-custom-software-developers/latin-america?page=1",
+  },
+  {
+    text: "",
+    urlText: "Best Marketing Analytics & Big Data Firms of 2019",
+    url: "https://www.designrush.com/agency/marketing-analytics-big-data?page=6",
+  },
+  {
+    text: "",
+    urlText: "Top Shopify Development Companies in Mexico",
+    url: "https://clutch.co/mx/developers/shopify",
+  },
+  {
+    text: "",
+    urlText: "Top Data Analytics Companies in Mexico",
+    url: "https://clutch.co/mx/it-services/analytics/leaders-matrix",
+  },
+  {
+    text: "",
+    urlText: "Top Web Designers in Mexico - 2020 Reviews",
+    url: "https://clutch.co/mx/web-designers?page=1",
+  },
+  {
+    text: "",
+    urlText: "Top Staff Augmentation Services in Mexico",
+    url: "https://clutch.co/mx/it-services/staff-augmentation",
+  },
+  {
+    text: "",
+    urlText: "Top B2B Service Providers in Mexico",
+    url: "https://clutch.co/mx/top-service-providers?page=2",
+  },
+  {
+    text: "",
+    urlText: "Premiere Wordpress Web Designer Award",
+    url: "https://www.bealignedwebdesign.com/wordpress-embed-code?fbclid=IwAR2uR2RC33zDLuOTMUqJgymoBJt34zwoL1BMXcfgj39ezGeIVsOEF3Q0GvI",
+  },
+  {
+    text: "",
+    urlText: "Ecommerce Security",
+    url: "https://www.designrush.com/agency/cybersecurity/trends/ecommerce-security",
+  },
+];
 ---
 
 <Layout title="About Us" footerMargin={false}>
@@ -51,7 +167,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
   <div class="mt-20 flex items-center justify-center bg-[#BBE1FA] p-8">
     <Container>
       <section class="flex flex-col items-stretch md:m-4 md:flex-row md:p-4">
-        <div class="group place-self-center md:mt-0 md:mr-10">
+        <div class="group place-self-center md:mt-0">
           <Picture
             src={AboutUsEyeClosed}
             alt="About Us Eye Closed"
@@ -68,7 +184,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
           />
         </div>
         <div class="mt-10 place-self-center md:mt-0 md:p-5">
-          <h1 class="text-md mb-2 font-semibold tracking-tight text-black">
+          <h1 class="text-md mb-4 font-semibold tracking-tight text-black">
             What do we do?
           </h1>
           <h1 class="text-2xl font-bold tracking-tight text-black">
@@ -88,7 +204,56 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
     </Container>
   </div>
 
-  <!-- ! -->
+  <Container>
+    <section class="flex flex-col items-stretch md:m-4 md:p-4">
+      <div class="mt-10 w-full md:mt-0 md:p-5">
+        <div>
+          <h1 class="text-md mb-4 font-semibold tracking-tight text-black">
+            Awards & achievements
+          </h1>
+          <h1 class="text-2xl font-bold tracking-tight text-black">
+            Setting standards others follow
+          </h1>
+        </div>
+        <div class="mt-10">
+          <h1 class="text-3xl font-bold tracking-tight text-black md:text-4xl">
+            2022 Awards and Recognitions
+          </h1>
+          <ul>
+            {
+              ShugertAwardsAndRecognitions.map((award) => (
+                <li class="my-2">
+                  <p>
+                    {award.text && <span>{award.text} - </span>}
+                    <a href={award.url} class="text-blue-500 hover:underline">
+                      {award.urlText}
+                    </a>
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+          <h1 class="mt-5 text-2xl font-bold tracking-tight text-black">
+            Past Awards
+          </h1>
+          <ul>
+            {
+              PastAwards.map((award) => (
+                <li class="my-2">
+                  <p>
+                    {award.text && <span>{award.text} - </span>}
+                    <a href={award.url} class="text-blue-500 hover:underline">
+                      {award.urlText}
+                    </a>
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+  </Container>
 
   <Container>
     <div class="mt-24">

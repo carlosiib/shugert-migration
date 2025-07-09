@@ -1,143 +1,157 @@
 ---
-import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
 import Link from "@components/ui/link.astro";
-import EmployeeImg from "../assets/employee.jpg";
-import Logos from "@components/logos.astro";
-import { Icon } from "astro-icon/components";
-import Cta from "@components/cta.astro";
-import Image from "astro/components/Image.astro";
 
 import AboutUsBanner from "@assets/shugert/AboutUs.png";
 import AboutUsEyeClosed from "@assets/shugert/aboutUS_eye_closed.png";
 import AboutUsEyeOpen from "@assets/shugert/aboutUS_eye_open.png";
 
-// Filter team entries with 'draft: false' & date before current date
-const publishedTeamMembers = await getCollection("team", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
+import ThingsShugertAI from "@assets/shugert/Things_Shugert_AI.jpg";
+import ThingsShugertMktAnalytics from "@assets/shugert/Things_Shugert_MktAnalytics.jpg";
+import ThingsShugertWebDev from "@assets/shugert/Things_Shugert_WebDev.jpg";
+import ThingsShugertEditorial from "@assets/shugert/Things_Shugert_Editorial.jpg";
+import ThingsShugertCustomPublishin from "@assets/shugert/Things_Shugert_CustomPublishin.jpg";
+import ThingsShugertDigitalMKT from "@assets/shugert/Things_Shugert_digitalMKT.jpg";
+import ThingsShugertDigitalConsumer from "@assets/shugert/Things_Shugert_DigitalConsumer.jpg";
+import ThingsShugertVideo from "@assets/shugert/Things_Shugert_video.jpg";
 
-const ShugertAwardsAndRecognitions = [
-  {
-    text: "Top Mexico Shopify Development Companies",
-    urlText: "See Leaders Matrix Here",
-    url: "https://clutch.co/mx/developers/shopify/leaders-matrix",
-  },
-  {
-    text: "Top Mexico E-Commerce Developers",
-    urlText: "See Leaders Matrix Here",
-    url: "https://clutch.co/mx/developers/ecommerce/leaders-matrix",
-  },
-  {
-    text: "Best Social Media Marketing Agencies",
-    urlText: "Social Media Marketing Companies",
-    url: "https://www.designrush.com/agency/social-media-marketing",
-  },
-];
+const Awards = {
+  Recent: [
+    {
+      text: "Top Mexico Shopify Development Companies",
+      urlText: "See Leaders Matrix Here",
+      url: "https://clutch.co/mx/developers/shopify/leaders-matrix",
+    },
+    {
+      text: "Top Mexico E-Commerce Developers",
+      urlText: "See Leaders Matrix Here",
+      url: "https://clutch.co/mx/developers/ecommerce/leaders-matrix",
+    },
+    {
+      text: "Best Social Media Marketing Agencies",
+      urlText: "Social Media Marketing Companies",
+      url: "https://www.designrush.com/agency/social-media-marketing",
+    },
+  ],
+  Past: [
+    {
+      text: "Top B2B Service Providers in Mexico for 2020",
+      urlText: "See detailes here",
+      url: "https://clutch.co/press-releases/announced-top-b2b-service-providers-mexico-2020",
+    },
+    {
+      text: "Best SEO Companies in February 2021 according to DesignRush",
+      urlText: "Best SEO companies",
+      url: "https://www.designrush.com/agency/search-engine-optimization",
+    },
+    {
+      text: "MSc Samuel Noriega",
+      urlText: "Hacker Noon Contributor of the Year - NEURAL NETWORKS",
+      url: "https://noonies.tech/award/hacker-noon-contributor-of-the-year-neural-networks",
+    },
+    {
+      text: "",
+      urlText: "Top Shopify Website Designers Of 2020 according to DR",
+      url: "https://www.designrush.com/agency/shopify",
+    },
+    {
+      text: "",
+      urlText: "Top WordPress Developers Of 2020 according to DR",
+      url: "https://www.designrush.com/agency/wordpress-web-design",
+    },
+    {
+      text: "",
+      urlText: "Source: Yahoo Finance",
+      url: "https://finance.yahoo.com/news/best-ecommerce-software-development-companies-044500753.html",
+    },
+    {
+      text: "",
+      urlText:
+        "Top Shopify Developers - 16 in the world! Source: Yahoo Finance",
+      url: "https://www.ecommercecompanies.com/shopify-developers/",
+    },
+    {
+      text: "",
+      urlText: "Best B2B Digital Marketing Agencies",
+      url: "https://topmarketingcompanies.com/b2b-digital-marketing-companies/",
+    },
+    {
+      text: "",
+      urlText: "Top E-Commerce Developers in Mexico 2020",
+      url: "https://clutch.co/mx/developers/ecommerce",
+    },
+    {
+      text: "",
+      urlText: "Top 30 Web Development Companies in Mexico 2020",
+      url: "https://themanifest.com/mx/web-development/companies",
+    },
+    {
+      text: "",
+      urlText: "Top Software Developers in Latin America",
+      url: "https://visualobjects.com/software-development/top-custom-software-developers/latin-america?page=1",
+    },
+    {
+      text: "",
+      urlText: "Best Marketing Analytics & Big Data Firms of 2019",
+      url: "https://www.designrush.com/agency/marketing-analytics-big-data?page=6",
+    },
+    {
+      text: "",
+      urlText: "Top Shopify Development Companies in Mexico",
+      url: "https://clutch.co/mx/developers/shopify",
+    },
+    {
+      text: "",
+      urlText: "Top Data Analytics Companies in Mexico",
+      url: "https://clutch.co/mx/it-services/analytics/leaders-matrix",
+    },
+    {
+      text: "",
+      urlText: "Top Web Designers in Mexico - 2020 Reviews",
+      url: "https://clutch.co/mx/web-designers?page=1",
+    },
+    {
+      text: "",
+      urlText: "Top Staff Augmentation Services in Mexico",
+      url: "https://clutch.co/mx/it-services/staff-augmentation",
+    },
+    {
+      text: "",
+      urlText: "Top B2B Service Providers in Mexico",
+      url: "https://clutch.co/mx/top-service-providers?page=2",
+    },
+    {
+      text: "",
+      urlText: "Premiere Wordpress Web Designer Award",
+      url: "https://www.bealignedwebdesign.com/wordpress-embed-code?fbclid=IwAR2uR2RC33zDLuOTMUqJgymoBJt34zwoL1BMXcfgj39ezGeIVsOEF3Q0GvI",
+    },
+    {
+      text: "",
+      urlText: "Ecommerce Security",
+      url: "https://www.designrush.com/agency/cybersecurity/trends/ecommerce-security",
+    },
+  ],
+};
 
-const PastAwards = [
-  {
-    text: "Top B2B Service Providers in Mexico for 2020",
-    urlText: "See detailes here",
-    url: "https://clutch.co/press-releases/announced-top-b2b-service-providers-mexico-2020",
-  },
-  {
-    text: "Best SEO Companies in February 2021 according to DesignRush",
-    urlText: "Best SEO companies",
-    url: "https://www.designrush.com/agency/search-engine-optimization",
-  },
-  {
-    text: "MSc Samuel Noriega",
-    urlText: "Hacker Noon Contributor of the Year - NEURAL NETWORKS",
-    url: "https://noonies.tech/award/hacker-noon-contributor-of-the-year-neural-networks",
-  },
-  {
-    text: "",
-    urlText: "Top Shopify Website Designers Of 2020 according to DR",
-    url: "https://www.designrush.com/agency/shopify",
-  },
-  {
-    text: "",
-    urlText: "Top WordPress Developers Of 2020 according to DR",
-    url: "https://www.designrush.com/agency/wordpress-web-design",
-  },
-  {
-    text: "",
-    urlText: "Source: Yahoo Finance",
-    url: "https://finance.yahoo.com/news/best-ecommerce-software-development-companies-044500753.html",
-  },
-  {
-    text: "",
-    urlText: "Top Shopify Developers - 16 in the world! Source: Yahoo Finance",
-    url: "https://www.ecommercecompanies.com/shopify-developers/",
-  },
-  {
-    text: "",
-    urlText: "Best B2B Digital Marketing Agencies",
-    url: "https://topmarketingcompanies.com/b2b-digital-marketing-companies/",
-  },
-  {
-    text: "",
-    urlText: "Top E-Commerce Developers in Mexico 2020",
-    url: "https://clutch.co/mx/developers/ecommerce",
-  },
-  {
-    text: "",
-    urlText: "Top 30 Web Development Companies in Mexico 2020",
-    url: "https://themanifest.com/mx/web-development/companies",
-  },
-  {
-    text: "",
-    urlText: "Top Software Developers in Latin America",
-    url: "https://visualobjects.com/software-development/top-custom-software-developers/latin-america?page=1",
-  },
-  {
-    text: "",
-    urlText: "Best Marketing Analytics & Big Data Firms of 2019",
-    url: "https://www.designrush.com/agency/marketing-analytics-big-data?page=6",
-  },
-  {
-    text: "",
-    urlText: "Top Shopify Development Companies in Mexico",
-    url: "https://clutch.co/mx/developers/shopify",
-  },
-  {
-    text: "",
-    urlText: "Top Data Analytics Companies in Mexico",
-    url: "https://clutch.co/mx/it-services/analytics/leaders-matrix",
-  },
-  {
-    text: "",
-    urlText: "Top Web Designers in Mexico - 2020 Reviews",
-    url: "https://clutch.co/mx/web-designers?page=1",
-  },
-  {
-    text: "",
-    urlText: "Top Staff Augmentation Services in Mexico",
-    url: "https://clutch.co/mx/it-services/staff-augmentation",
-  },
-  {
-    text: "",
-    urlText: "Top B2B Service Providers in Mexico",
-    url: "https://clutch.co/mx/top-service-providers?page=2",
-  },
-  {
-    text: "",
-    urlText: "Premiere Wordpress Web Designer Award",
-    url: "https://www.bealignedwebdesign.com/wordpress-embed-code?fbclid=IwAR2uR2RC33zDLuOTMUqJgymoBJt34zwoL1BMXcfgj39ezGeIVsOEF3Q0GvI",
-  },
-  {
-    text: "",
-    urlText: "Ecommerce Security",
-    url: "https://www.designrush.com/agency/cybersecurity/trends/ecommerce-security",
-  },
+const ThingsShuter = [
+  ThingsShugertAI,
+  ThingsShugertMktAnalytics,
+  ThingsShugertWebDev,
+  ThingsShugertEditorial,
+  ThingsShugertCustomPublishin,
+  ThingsShugertDigitalMKT,
+  ThingsShugertDigitalConsumer,
+  ThingsShugertVideo,
 ];
 ---
 
-<Layout title="About Us" footerMargin={false}>
+<Layout
+  title="About Us"
+  description="Learn more about Shugert, our achievements, and the services we offer. Discover why we are leaders in Shopify development, digital marketing, and more."
+  footerMargin={false}
+>
   <Container>
     <section class="flex flex-col items-stretch md:m-4 md:flex-row md:p-4">
       <div class="place-self-center md:p-5">
@@ -155,7 +169,7 @@ const PastAwards = [
       <div class="mt-10 place-self-center md:mt-0">
         <Picture
           src={AboutUsBanner}
-          alt="About Us Banner"
+          alt="About Us Shugert Banner"
           formats={["avif", "webp"]}
           loading="eager"
           class="h-auto lg:max-w-xl"
@@ -170,14 +184,14 @@ const PastAwards = [
         <div class="group place-self-center md:mt-0">
           <Picture
             src={AboutUsEyeClosed}
-            alt="About Us Eye Closed"
+            alt="About Us Shugert Eye Closed"
             formats={["avif", "webp"]}
             loading="eager"
             class="block h-auto group-hover:hidden lg:max-w-xl"
           />
           <Picture
             src={AboutUsEyeOpen}
-            alt="About Us Eye Open"
+            alt="About Us Shugert Eye Open"
             formats={["avif", "webp"]}
             loading="eager"
             class="hidden h-auto group-hover:block lg:max-w-xl"
@@ -197,7 +211,9 @@ const PastAwards = [
             newsletters, etc…. the whole thing.
           </p>
           <div class="mt-5 flex">
-            <Link href="/portfolio">Explore our capabilities</Link>
+            <Link href="/portfolio" aria-label="Explore Shugert's portfolio"
+              >Explore our capabilities</Link
+            >
           </div>
         </div>
       </section>
@@ -221,11 +237,16 @@ const PastAwards = [
           </h1>
           <ul>
             {
-              ShugertAwardsAndRecognitions.map((award) => (
+              Awards.Recent.map((award) => (
                 <li class="my-2">
                   <p>
                     {award.text && <span>{award.text} - </span>}
-                    <a href={award.url} class="text-blue-500 hover:underline">
+                    <a
+                      href={award.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-blue-500 hover:underline"
+                    >
                       {award.urlText}
                     </a>
                   </p>
@@ -238,11 +259,16 @@ const PastAwards = [
           </h1>
           <ul>
             {
-              PastAwards.map((award) => (
+              Awards.Past.map((award) => (
                 <li class="my-2">
                   <p>
                     {award.text && <span>{award.text} - </span>}
-                    <a href={award.url} class="text-blue-500 hover:underline">
+                    <a
+                      href={award.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-blue-500 hover:underline"
+                    >
                       {award.urlText}
                     </a>
                   </p>
@@ -253,43 +279,37 @@ const PastAwards = [
         </div>
       </div>
     </section>
-  </Container>
 
-  <Container>
-    <div class="mt-24">
-      <h2 class="text-center text-4xl lg:text-5xl lg:tracking-tight">
-        Core <span class="font-bold text-indigo-600">Team</span>
-      </h2>
-      <p class="mt-4 text-center text-lg text-slate-600">
-        Astroship is built by these awesome individuals.
-      </p>
-    </div>
-
-    <div class="mx-auto mt-12 grid gap-10 md:grid-cols-4">
-      {
-        publishedTeamMembers.map((teamMemberEntry) => (
-          <div class="group">
-            <div class="aspect-square w-full">
-              <Picture
-                src={teamMemberEntry?.data?.avatar?.src}
-                alt={teamMemberEntry?.data?.avatar?.alt || "Team Member"}
-                loading="lazy"
-                width={400}
-                height={400}
-                formats={["avif", "webp"]}
-                class="h-full w-full rounded bg-white object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
-              />
-            </div>
-
-            <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-500">
-                {teamMemberEntry.data.title}
-              </h3>
-            </div>
-          </div>
-        ))
-      }
-    </div>
+    <section class="flex flex-col items-stretch md:m-4 md:p-4">
+      <div class="mt-10 w-full md:mt-0 md:p-5">
+        <div>
+          <h1 class="text-md mb-4 font-semibold tracking-tight text-black">
+            Best. In. Town.
+          </h1>
+          <h1 class="text-2xl font-bold tracking-tight text-black">
+            Our Services
+          </h1>
+        </div>
+        <div class="mx-auto mt-12 grid gap-10 md:grid-cols-3">
+          {
+            ThingsShuter.map((ThingShugert, index) => (
+              <div class="group">
+                <div class="aspect-square w-full">
+                  <Picture
+                    src={ThingShugert}
+                    alt={`Shugert service image ${index + 1}`}
+                    loading="lazy"
+                    width={400}
+                    height={400}
+                    formats={["avif", "webp"]}
+                    class="h-full w-full rounded bg-white object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
+                  />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
   </Container>
 </Layout>

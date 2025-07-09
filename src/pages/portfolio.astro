@@ -1,25 +1,108 @@
 ---
-import Container from "@components/container.astro";
+import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Link from "@components/ui/link.astro";
+
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "free-astro-components";
+
+import OurWorkClientsShugert from "@assets/shugert/Clients_Shugert.png";
+
+import ThumbsShugertAgenda from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_Agenda.jpg";
+import ThumbsShugertBIN from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_BIN.jpg";
+import ThumbsShugertCEO from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_CEO.jpg";
+import ThumbsShugertDataViz from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_DataViz.jpg";
+import ThumbsShugertETCS from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_ETCS.jpg";
+import ThumbsShugertGallery from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_Gallery.jpg";
+import ThumbsShugertIllustration from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_Illustration.jpg";
+import ThumbsShugertInvicta from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_Invicta.jpg";
+import ThumbsShugertMuscleM from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_MuscleM.jpg";
+import ThumbsShugertOther from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_Other.jpg";
+import ThumbsShugertSweatRX from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_SweatRX.jpg";
+import ThumbsShugertSWEquity from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_SWEquity.jpg";
+import ThumbsShugertWV from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_WV.jpg";
+import ThumbsShugertYell from "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_Yell.jpg";
+
+const ThumbsShugert = [
+  ThumbsShugertETCS,
+  ThumbsShugertYell,
+  ThumbsShugertBIN,
+  ThumbsShugertInvicta,
+  ThumbsShugertCEO,
+  ThumbsShugertWV,
+  ThumbsShugertGallery,
+  ThumbsShugertAgenda,
+  ThumbsShugertSweatRX,
+  ThumbsShugertSWEquity,
+  ThumbsShugertMuscleM,
+  ThumbsShugertDataViz,
+  ThumbsShugertIllustration,
+  ThumbsShugertOther,
+];
 ---
 
 <Layout title="Our Work">
   <Container>
-    <div class="rounded-xl bg-white p-8 text-center shadow-lg">
-      <h1 class="mb-4 text-3xl font-bold text-gray-800">
-        🚧 Under Construction 🚧
-      </h1>
-      <p class="text-gray-600">
-        We're working hard to bring you something amazing. Stay tuned!
-      </p>
-      <div class="mt-6">
-        <a
-          href="/"
-          class="rounded-full bg-indigo-600 px-4 py-2 text-white transition hover:bg-indigo-700"
-        >
-          Go Back Home
-        </a>
+    <section
+      class="flex flex-col items-stretch justify-evenly md:m-4 md:flex-row md:p-4"
+    >
+      <div class="place-self-center md:p-5">
+        <h1 class="text-md mb-6 font-semibold tracking-tight text-black">
+          We have offered all kinds of solutions for all types of markets
+        </h1>
+        <h1 class="text-5xl font-extrabold lg:text-7xl">
+          Satisfied <br /> customers
+        </h1>
+        <p class="mt-4 max-w-xl text-lg text-black lg:text-xl">
+          Regardless of the subject, tone, or geographic location, our team will
+          search and execute the most efficient solutions.
+        </p>
       </div>
-    </div>
+      <div class="mt-10 place-self-center md:mt-0">
+        <Picture
+          src={OurWorkClientsShugert}
+          alt="Our Work Clients Shugert"
+          formats={["avif", "webp"]}
+          loading="eager"
+          class="h-auto lg:max-w-sm"
+        />
+      </div>
+    </section>
+
+    <section>
+      <div class="mt-10 w-full md:mt-0 md:p-5">
+        <h1 class="text-3xl font-extrabold md:max-w-1/2 lg:text-4xl">
+          These are only a small sample of work with current clients, check out
+          our blog and social media for our own content.
+        </h1>
+      </div>
+    </section>
   </Container>
+
+  <section class="p-4">
+    <div class="mx-auto mt-12 grid gap-6 md:grid-cols-3">
+      {
+        ThumbsShugert.map((ThingShugert, index) => (
+          <div class="group">
+            <div class="aspect-video w-full">
+              <Picture
+                src={ThingShugert}
+                alt={`Shugert service image ${index + 1}`}
+                loading="lazy"
+                width={400}
+                height={400}
+                formats={["avif", "webp"]}
+                class="h-full w-full rounded bg-white object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
 </Layout>

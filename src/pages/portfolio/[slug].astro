@@ -16,57 +16,11 @@ export async function getStaticPaths() {
 // Get the entry directly from the prop on render
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-
-import Review from "@components/review.astro";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "The Shops @Go Your Own Way",
-    title: "",
-    image: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?w=640",
-    text: "I picked TaskerArmy because they were the only ones among the candidates to provide choices over and above the requested work. This clued me in that they already knew exactly what to do. Their attention was focused on the problem and not on their qualifications, which is always a good sign.",
-  },
-  {
-    id: 2,
-    name: "Caffé-Select",
-    title: "",
-    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=640",
-    text: "TaskerArmy has done excellent work for us! Not only did he make the required changes but created detailed instructions with pictures on how to use the feature he installed on our website. We would not hesitate to recommend TaskerArmy!",
-  },
-  {
-    id: 3,
-    name: "40 Colori",
-    title: "",
-    image: "https://images.unsplash.com/photo-1639149888905-fb39731f2e6c?w=640",
-    text: "Easiest and smoothest interaction to date with a Shopify Expert! I told TaskerArmy what I needed and TaskerArmy got it done quicker than I could have imagined. I gave some feedback and the same day he acted on it and fixed it with no shaming me!",
-  },
-  {
-    id: 4,
-    name: "Wicked Thrift & PopRock Vintage",
-    title: "",
-    image: "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?w=640",
-    text: "I have hired TaskerArmy for several tweaks to my website and online store, over the last four months. Very fast, excellent communication, totally understood my needs each time. It’s so nice to have someone you can depend on to stick with a job until completed and who really wants to make sure the customer is happy.",
-  },
-  {
-    id: 5,
-    name: "KAG Pet",
-    title: "",
-    image: "https://images.unsplash.com/photo-1601455763557-db1bea8a9a5a?w=640",
-    text: "Excellent communication and service. The team help me fix all the problems and even made a lot sweet short instruction videos. I have to mention they offer the best service at the most reasonable price. Thank you for the hard work and the special rate. Highly recommended!",
-  },
-  {
-    id: 6,
-    name: "Box Chois",
-    title: "",
-    image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=640",
-    text: "TaskerArmy was the best option for our custom box development. We received the best support and guidance in every step of the project. What we like the most was their professionalism and way they involved in the project. Super recommended.",
-  },
-];
 ---
 
 <Layout title={entry.data.title}>
   <Container>
+    <!-- Slug Products Header -->
     <div class="mx-auto mt-14 max-w-3xl text-center">
       <span class="text-sm font-medium tracking-wider text-blue-400 uppercase">
         {entry.data.category}
@@ -88,8 +42,10 @@ const testimonials = [
         </div>
       </div>
     </div>
+    <!-- End Slug Products Header -->
 
-    <div class="aspect-video w-full">
+    <!-- Slug Products Image -->
+    <!-- <div class="aspect-video w-full">
       <Picture
         formats={["avif", "webp"]}
         src={entry.data.image.src}
@@ -97,33 +53,46 @@ const testimonials = [
         class="mt-5 h-full w-full rounded-xl object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
         transition:name={`post-img-${entry.slug}`}
       />
-    </div>
+    </div> -->
+    <!-- End Slug Products Image -->
 
+    <!-- Slug Products Text -->
     <div
-      class="prose prose-headings:mb-2 prose-headings:mt-8 mx-auto mt-6 max-w-3xl"
+      class="prose prose-headings:mb-2 prose-headings:mt-8 mx-auto my-6 max-w-3xl"
     >
       <Content />
     </div>
+    <!-- End Slug Products Text -->
+
     <div
       id="indicators-carousel"
-      class="relative w-full"
+      class="relative h-full w-full"
       data-carousel="static"
     >
       <!-- Carousel wrapper -->
-      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <div class="aspect-video w-full">
         {
-          testimonials.map((item, index) => (
-            <div
-              class={`duration-700 ease-in-out ${index === 0 ? "block" : "hidden"}`}
-              data-carousel-item={index === 0 ? "active" : ""}
-            >
-              <img
-                src={item.image}
-                class="absolute top-1/2 left-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-                alt={item.name}
-              />
-            </div>
-          ))
+          entry.data.slider.map((item, index) =>
+            item.type === "image" ? (
+              <div
+                class={`${index === 0 ? "block" : "hidden"}`}
+                data-carousel-item={index === 0 ? "active" : ""}
+              >
+                <Picture
+                  src={item.src}
+                  alt={item.alt}
+                  format={"webp"}
+                  loading={index <= 2 ? "eager" : "lazy"}
+                  decoding={index <= 2 ? "sync" : "async"}
+                  class="block h-full w-full rounded-xl object-cover"
+                />
+              </div>
+            ) : (
+              <video controls class="h-auto w-full">
+                Your browser does not support the video tag.
+              </video>
+            )
+          )
         }
       </div>
       <!-- Slider indicators -->

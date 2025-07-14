@@ -42,6 +42,13 @@ const portfolioCollection = defineCollection({
       }),
       category: z.string(),
       tags: z.array(z.string()),
+      slider: z.array(
+        z.object({
+          type: z.enum(["image", "video"]),
+          src: image(),
+          alt: z.string(),
+        }),
+      ),
     }),
 });
 

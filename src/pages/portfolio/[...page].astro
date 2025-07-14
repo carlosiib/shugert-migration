@@ -1,0 +1,108 @@
+---
+import Link from "@components/ui/link.astro";
+import type { PaginateFunction } from "astro";
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Pagination from "@components/pagination.astro";
+
+import OurWorkClientsShugert from "@assets/shugert/Clients_Shugert.png";
+
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}) {
+  const PAGE_SIZE = 14;
+
+  const allPosts = await getCollection("portfolio");
+
+  const allSortedPosts = allPosts.sort((a, b) => a.data.id - b.data.id);
+
+  return paginate(allSortedPosts, {
+    pageSize: PAGE_SIZE,
+  });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout title="Portfolio">
+  <Container>
+    <section
+      class="flex flex-col items-stretch justify-evenly md:m-4 md:flex-row md:p-4"
+    >
+      <div class="place-self-center md:p-5">
+        <h1 class="text-md mb-6 font-semibold tracking-tight text-black">
+          We have offered all kinds of solutions for all types of markets
+        </h1>
+        <h1 class="text-5xl font-extrabold lg:text-7xl">
+          Satisfied <br /> customers
+        </h1>
+        <p class="mt-4 max-w-xl text-lg text-black lg:text-xl">
+          Regardless of the subject, tone, or geographic location, our team will
+          search and execute the most efficient solutions.
+        </p>
+      </div>
+      <div class="mt-10 place-self-center md:mt-0">
+        <Picture
+          src={OurWorkClientsShugert}
+          alt="Our Work Clients Shugert"
+          formats={["avif", "webp"]}
+          loading="eager"
+          class="h-auto lg:max-w-sm"
+        />
+      </div>
+    </section>
+
+    <section>
+      <div class="mt-10 w-full md:mt-0 md:p-5">
+        <h1 class="text-3xl font-extrabold md:max-w-1/2 lg:text-4xl">
+          These are only a small sample of work with current clients, check out
+          our blog and social media for our own content.
+        </h1>
+      </div>
+    </section>
+  </Container>
+
+  <section class="p-4">
+    <main class="mt-16">
+      <ul class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        {
+          page.data.map((post, index) => (
+            <li>
+              <a href={`/portfolio/${post.slug}`}>
+                <div class="aspect-video w-full">
+                  <Picture
+                    formats={["avif", "webp"]}
+                    src={post.data.image.src}
+                    alt={post.data.image.alt}
+                    sizes="(max-width: 800px) 100vw, 800px"
+                    width={800}
+                    height={600}
+                    loading={index <= 2 ? "eager" : "lazy"}
+                    decoding={index <= 2 ? "sync" : "async"}
+                    class="h-full w-full rounded bg-white object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
+                    transition:name={`post-img-${post.slug}`}
+                  />
+                  <div class="mt-4">
+                    <span class="text-xs font-medium tracking-wider text-blue-400 uppercase">
+                      {post.data.category}
+                    </span>
+
+                    <h2 class="mt-1 text-xl leading-snug font-semibold tracking-tight">
+                      {post.data.title}
+                    </h2>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <Pagination url={page.url} />
+    </main>
+  </section>
+</Layout>

@@ -1,0 +1,258 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import { Picture } from "astro:assets";
+
+// Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("portfolio");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+// Get the entry directly from the prop on render
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+import Review from "@components/review.astro";
+
+const testimonials = [
+  {
+    id: 1,
+    name: "The Shops @Go Your Own Way",
+    title: "",
+    image: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?w=640",
+    text: "I picked TaskerArmy because they were the only ones among the candidates to provide choices over and above the requested work. This clued me in that they already knew exactly what to do. Their attention was focused on the problem and not on their qualifications, which is always a good sign.",
+  },
+  {
+    id: 2,
+    name: "Caffé-Select",
+    title: "",
+    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=640",
+    text: "TaskerArmy has done excellent work for us! Not only did he make the required changes but created detailed instructions with pictures on how to use the feature he installed on our website. We would not hesitate to recommend TaskerArmy!",
+  },
+  {
+    id: 3,
+    name: "40 Colori",
+    title: "",
+    image: "https://images.unsplash.com/photo-1639149888905-fb39731f2e6c?w=640",
+    text: "Easiest and smoothest interaction to date with a Shopify Expert! I told TaskerArmy what I needed and TaskerArmy got it done quicker than I could have imagined. I gave some feedback and the same day he acted on it and fixed it with no shaming me!",
+  },
+  {
+    id: 4,
+    name: "Wicked Thrift & PopRock Vintage",
+    title: "",
+    image: "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?w=640",
+    text: "I have hired TaskerArmy for several tweaks to my website and online store, over the last four months. Very fast, excellent communication, totally understood my needs each time. It’s so nice to have someone you can depend on to stick with a job until completed and who really wants to make sure the customer is happy.",
+  },
+  {
+    id: 5,
+    name: "KAG Pet",
+    title: "",
+    image: "https://images.unsplash.com/photo-1601455763557-db1bea8a9a5a?w=640",
+    text: "Excellent communication and service. The team help me fix all the problems and even made a lot sweet short instruction videos. I have to mention they offer the best service at the most reasonable price. Thank you for the hard work and the special rate. Highly recommended!",
+  },
+  {
+    id: 6,
+    name: "Box Chois",
+    title: "",
+    image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=640",
+    text: "TaskerArmy was the best option for our custom box development. We received the best support and guidance in every step of the project. What we like the most was their professionalism and way they involved in the project. Super recommended.",
+  },
+];
+---
+
+<Layout title={entry.data.title}>
+  <Container>
+    <div class="mx-auto mt-14 max-w-3xl text-center">
+      <span class="text-sm font-medium tracking-wider text-blue-400 uppercase">
+        {entry.data.category}
+      </span>
+      <h1
+        class="mt-1 text-3xl font-bold lg:text-4xl lg:leading-tight lg:tracking-tight"
+      >
+        {entry.data.title}
+      </h1>
+      <div
+        class="mt-3 flex flex-wrap items-center justify-center gap-2 text-sm md:flex-nowrap"
+      >
+        <div class="flex w-full flex-wrap justify-center gap-3 md:w-auto">
+          {
+            entry.data.tags.map((tag) => (
+              <span class="text-sm text-slate-500">#{tag}</span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="aspect-video w-full">
+      <Picture
+        formats={["avif", "webp"]}
+        src={entry.data.image.src}
+        alt={entry.data.image.alt}
+        class="mt-5 h-full w-full rounded-xl object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
+        transition:name={`post-img-${entry.slug}`}
+      />
+    </div>
+
+    <div
+      class="prose prose-headings:mb-2 prose-headings:mt-8 mx-auto mt-6 max-w-3xl"
+    >
+      <Content />
+    </div>
+    <div
+      id="indicators-carousel"
+      class="relative w-full"
+      data-carousel="static"
+    >
+      <!-- Carousel wrapper -->
+      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+        {
+          testimonials.map((item, index) => (
+            <div
+              class={`duration-700 ease-in-out ${index === 0 ? "block" : "hidden"}`}
+              data-carousel-item={index === 0 ? "active" : ""}
+            >
+              <img
+                src={item.image}
+                class="absolute top-1/2 left-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
+                alt={item.name}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <!-- Slider indicators -->
+      <div
+        class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse"
+      >
+        <button
+          type="button"
+          class="h-3 w-3 rounded-full"
+          aria-current="true"
+          aria-label="Slide 1"
+          data-carousel-slide-to="0"></button>
+        <button
+          type="button"
+          class="h-3 w-3 rounded-full"
+          aria-current="false"
+          aria-label="Slide 2"
+          data-carousel-slide-to="1"></button>
+        <button
+          type="button"
+          class="h-3 w-3 rounded-full"
+          aria-current="false"
+          aria-label="Slide 3"
+          data-carousel-slide-to="2"></button>
+        <button
+          type="button"
+          class="h-3 w-3 rounded-full"
+          aria-current="false"
+          aria-label="Slide 4"
+          data-carousel-slide-to="3"></button>
+        <button
+          type="button"
+          class="h-3 w-3 rounded-full"
+          aria-current="false"
+          aria-label="Slide 5"
+          data-carousel-slide-to="4"></button>
+      </div>
+      <!-- Slider controls -->
+      <button
+        type="button"
+        class="group absolute start-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
+        data-carousel-prev
+      >
+        <span
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70"
+        >
+          <svg
+            class="h-4 w-4 text-white rtl:rotate-180 dark:text-gray-800"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 1 1 5l4 4"></path>
+          </svg>
+          <span class="sr-only">Previous</span>
+        </span>
+      </button>
+      <button
+        type="button"
+        class="group absolute end-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
+        data-carousel-next
+      >
+        <span
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70"
+        >
+          <svg
+            class="h-4 w-4 text-white rtl:rotate-180 dark:text-gray-800"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 9 4-4-4-4"></path>
+          </svg>
+          <span class="sr-only">Next</span>
+        </span>
+      </button>
+    </div>
+    <div class="mt-12 text-center">
+      <a
+        href="/portfolio"
+        class="rounded-md bg-gray-100 px-5 py-3 transition hover:bg-gray-200"
+        >← Back to Blog</a
+      >
+    </div>
+  </Container>
+</Layout>
+
+<script>
+  function initializeCarousel() {
+    const items = document.querySelectorAll("[data-carousel-item]");
+    const nextButton = document.querySelector("[data-carousel-next]");
+    const prevButton = document.querySelector("[data-carousel-prev]");
+    let currentIndex = 0;
+
+    function updateCarousel(index) {
+      items.forEach((item, i) => {
+        item.classList.toggle("hidden", i !== index);
+        item.classList.toggle("block", i === index);
+        item.setAttribute("data-carousel-item", i === index ? "active" : "");
+      });
+    }
+
+    if (nextButton && prevButton) {
+      nextButton.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel(currentIndex);
+      });
+
+      prevButton.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel(currentIndex);
+      });
+    }
+
+    updateCarousel(currentIndex);
+  }
+
+  document.addEventListener("astro:after-swap", initializeCarousel);
+  document.addEventListener("DOMContentLoaded", initializeCarousel);
+</script>

@@ -32,19 +32,17 @@ const teamCollection = defineCollection({
 });
 
 const portfolioCollection = defineCollection({
-  schema: z.object({
-    draft: z.boolean(),
-    title: z.string(),
-    snippet: z.string(),
-    image: z.object({
-      src: z.string(),
-      alt: z.string(),
+  schema: ({ image }) =>
+    z.object({
+      id: z.number(),
+      title: z.string(),
+      image: z.object({
+        src: image(),
+        alt: z.string(),
+      }),
+      category: z.string(),
+      tags: z.array(z.string()),
     }),
-    publishDate: z.coerce.date(),
-    author: z.string().default("Astroship"),
-    category: z.string(),
-    tags: z.array(z.string()),
-  }),
 });
 
 // 3. Export a single `collections` object to register your collection(s)

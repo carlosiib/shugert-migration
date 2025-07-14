@@ -16,9 +16,11 @@ export async function getStaticPaths() {
 // Get the entry directly from the prop on render
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+const metaDescription = `Learn more about ${entry.data.title} in our portfolio.`;
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title} description={metaDescription}>
   <Container>
     <!-- Slug Products Header -->
     <div class="mx-auto mt-14 max-w-3xl text-center">
@@ -43,18 +45,6 @@ const { Content } = await entry.render();
       </div>
     </div>
     <!-- End Slug Products Header -->
-
-    <!-- Slug Products Image -->
-    <!-- <div class="aspect-video w-full">
-      <Picture
-        formats={["avif", "webp"]}
-        src={entry.data.image.src}
-        alt={entry.data.image.alt}
-        class="mt-5 h-full w-full rounded-xl object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
-        transition:name={`post-img-${entry.slug}`}
-      />
-    </div> -->
-    <!-- End Slug Products Image -->
 
     <!-- Slug Products Text -->
     <div
@@ -99,36 +89,17 @@ const { Content } = await entry.render();
       <div
         class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse"
       >
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="true"
-          aria-label="Slide 1"
-          data-carousel-slide-to="0"></button>
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 2"
-          data-carousel-slide-to="1"></button>
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 3"
-          data-carousel-slide-to="2"></button>
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 4"
-          data-carousel-slide-to="3"></button>
-        <button
-          type="button"
-          class="h-3 w-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 5"
-          data-carousel-slide-to="4"></button>
+        {
+          entry.data.slider.map((_, index) => (
+            <button
+              type="button"
+              class="h-3 w-3 rounded-full"
+              aria-current={index === 0 ? "true" : "false"}
+              aria-label={`Slide ${index + 1}`}
+              data-carousel-slide-to={index}
+            />
+          ))
+        }
       </div>
       <!-- Slider controls -->
       <button
@@ -186,7 +157,7 @@ const { Content } = await entry.render();
       <a
         href="/portfolio"
         class="rounded-md bg-gray-100 px-5 py-3 transition hover:bg-gray-200"
-        >← Back to Blog</a
+        >← Back to Portfolio</a
       >
     </div>
   </Container>

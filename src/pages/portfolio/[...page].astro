@@ -1,14 +1,14 @@
 ---
-import Link from "@components/ui/link.astro";
-import type { PaginateFunction } from "astro";
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
 import Pagination from "@components/pagination.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
 
 import OurWorkClientsShugert from "@assets/shugert/Clients_Shugert.png";
+import OurWorkTogether from "@assets/shugert/our-work-together.svg";
+import OurWorkCircleButton from "@assets/shugert/circle-button.svg";
 
 export async function getStaticPaths({
   paginate,
@@ -27,9 +27,11 @@ export async function getStaticPaths({
 }
 
 const { page } = Astro.props;
+const metaDescription =
+  "Explore our portfolio showcasing satisfied customers and innovative solutions for diverse markets.";
 ---
 
-<Layout title="Portfolio">
+<Layout title="Portfolio" description={metaDescription}>
   <Container>
     <section
       class="flex flex-col items-stretch justify-evenly md:m-4 md:flex-row md:p-4"
@@ -103,5 +105,44 @@ const { page } = Astro.props;
       </ul>
       <Pagination url={page.url} />
     </main>
+  </section>
+
+  <section class="flex flex-row md:items-end">
+    <div class="relative hidden overflow-hidden md:block">
+      <Picture
+        src={OurWorkTogether}
+        alt="Our Work Together Background"
+        width={800}
+        height={300}
+        class="object-fill opacity-20"
+      />
+    </div>
+    <div
+      class="mx-4 flex flex-col items-start md:mx-0 md:flex-row md:items-center"
+    >
+      <div class="md:px-8">
+        <h1 class="text-lg font-semibold tracking-tight text-black">
+          Let's Work Together
+        </h1>
+        <h1
+          class="text-4xl font-bold tracking-tight text-black sm:my-5 md:my-0"
+        >
+          We can help your business grow
+        </h1>
+        <p class="mb-5 text-lg md:mb-0">
+          Let's have a friendly chat to find out
+        </p>
+      </div>
+      <div>
+        <a href="/contact">
+          <Picture
+            class=""
+            src={OurWorkCircleButton}
+            alt="Contact Us Button"
+            width={75}
+          />
+        </a>
+      </div>
+    </div>
   </section>
 </Layout>

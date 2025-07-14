@@ -4,43 +4,43 @@ title: "Illustration"
 image:
   {
     src: "@assets/shugert/Thumbs_POR/Thumbs_POR_Shugert_Illustration.webp",
-    alt: "alt text",
+    alt: "Illustration Thumbnail",
   }
-category: "Growth"
-tags: [scaling, growth, SaaS]
+category: "Art & Design"
+tags: [Illustration, Art, Design, Creativity]
 
 slider:
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_1.png"
-    alt: "Example Image 1"
+    alt: "Illustration Example 1"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_2.png"
-    alt: "Example Image 2"
+    alt: "Illustration Example 2"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_3.png"
-    alt: "Example Image 3"
+    alt: "Illustration Example 3"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_4.png"
-    alt: "Example Image 4"
+    alt: "Illustration Example 4"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_5.png"
-    alt: "Example Image 5"
+    alt: "Illustration Example 5"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_6.png"
-    alt: "Example Image 6"
+    alt: "Illustration Example 6"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_7.png"
-    alt: "Example Image 7"
+    alt: "Illustration Example 7"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_8.png"
-    alt: "Example Image 8"
+    alt: "Illustration Example 8"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_9.png"
-    alt: "Example Image 9"
+    alt: "Illustration Example 9"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_10.png"
-    alt: "Example Image 10"
+    alt: "Illustration Example 10"
   - type: "image"
     src: "@assets/shugert/Ilustracion/Ilustracion_11.png"
-    alt: "Example Image 11"
+    alt: "Illustration Example 11"
 ---

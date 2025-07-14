@@ -9,6 +9,7 @@ import { Picture } from "astro:assets";
 import OurWorkClientsShugert from "@assets/shugert/Clients_Shugert.png";
 import OurWorkTogether from "@assets/shugert/our-work-together.svg";
 import OurWorkCircleButton from "@assets/shugert/circle-button.svg";
+import type { PaginateFunction } from "astro";
 
 export async function getStaticPaths({
   paginate,
@@ -52,7 +53,7 @@ const metaDescription =
         <Picture
           src={OurWorkClientsShugert}
           alt="Our Work Clients Shugert"
-          formats={["avif", "webp"]}
+          format={"webp"}
           loading="eager"
           class="h-auto lg:max-w-sm"
         />

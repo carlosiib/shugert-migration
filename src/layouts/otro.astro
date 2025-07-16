@@ -97,7 +97,19 @@ const makeTitle = title
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Shugert" />
     <meta property="og:updated_time" content="2025-07-16T00:00:00Z" />
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src *; media-src media1.com media2.com; script-src userscripts.example.com"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="cache-control" content="max-age=3600, must-revalidate" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
     <Navbar />

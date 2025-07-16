@@ -1,69 +1,364 @@
 ---
-import type { PaginateFunction } from "astro";
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
+import { Picture } from "astro:assets";
 import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
-import Pagination from "@components/pagination.astro";
+import Separator from "@components/separator.astro";
 
-import shopifyCollabsImage from "@assets/services/shopify-collabs.jpg";
-
-const learningCenterPosts = [
-  {
-    title: "How to Use Shopify Collabs",
-    url: "how-to-use-shopify-collabs",
-    image: shopifyCollabsImage,
-    altText: "Learn how to use Shopify Collabs",
-  },
-  {
-    title: "Shopify Functions: Customization for Your Store",
-    url: "shopify-functions",
-    image: shopifyCollabsImage,
-    altText: "Discover Shopify Functions for store customization",
-  },
-];
+import OurWorkClientsShugert from "@assets/shugert/Clients_Shugert.png";
+import webDevelopmentImage from "@assets/shugert/Web-Development.png";
+import FeatImage from "@assets/shugert/custom-machine-learning.png";
 ---
 
-<Layout title="Learning Center">
+<Layout
+  title="Shopify Functions: Unlock Customization for Your Store"
+  description="Discover how Shopify Functions can transform your e-commerce store with custom workflows, automation, and tailored solutions. Learn more with Shugert Marketing."
+>
   <Container>
-    <Sectionhead>
-      <Fragment slot="title">Learning Center</Fragment>
-      <Fragment slot="desc">
-        Explore our latest articles on Shopify tutorials, marketing analytics,
-        SEO, and CRO tips for eCommerce businesses.
-      </Fragment>
-    </Sectionhead>
-  </Container>
+    <header class="flex flex-col items-stretch justify-evenly lg:flex-row">
+      <div class="place-self-center md:p-5">
+        <h1 class="text-4xl font-extrabold lg:text-6xl">
+          Unlock the Power of Shopify Functions: Customization for Your Store
+        </h1>
+        <p class="mt-4 max-w-xl text-lg text-black lg:text-xl">
+          At
+          <a href="/" class="text-blue-500 hover:underline">Shugert Marketing</a
+          >, we specialize in creating custom Shopify solutions that elevate
+          your e-commerce business. One of the most innovative tools for
+          customization is <strong>Shopify Functions.</strong> This powerful feature
+          allows developers and merchants to add custom workflows, automation, and
+          tailor the functionality of their Shopify store to meet specific business
+          needs.
+        </p>
+      </div>
+      <figure class="mt-10 place-self-center md:mt-0">
+        <Picture
+          src={OurWorkClientsShugert}
+          alt="Illustration showcasing Our Work Clients Shugert"
+          format={"webp"}
+          loading="eager"
+          class="h-auto lg:max-w-sm"
+        />
+        <figcaption class="sr-only">
+          Illustration of Our Work Clients Shugert
+        </figcaption>
+      </figure>
+    </header>
 
-  <section class="mt-16 flex justify-center bg-[#F9F9F9]">
-    <Container>
-      <ul class="mb-2 flex flex-col p-4 md:mb-0 md:flex-row">
-        {
-          learningCenterPosts.map((post, index) => (
-            <li class="m-4 rounded-2xl border border-[#ddd] bg-white text-center transition-transform duration-500 hover:-translate-y-2 hover:shadow-lg">
-              <a href={`/learning/${post.url}`}>
-                <div class="aspect-video w-full overflow-hidden rounded-t-2xl">
-                  <Picture
-                    src={post.image}
-                    alt={post.altText}
-                    format="webp"
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    width={800}
-                    height={600}
-                    loading="eager"
-                    decoding="sync"
-                    class="h-full w-full object-cover"
-                  />
-                </div>
-                <div class="my-2">
-                  <h2 class="text-xl font-semibold">{post.title}</h2>
-                </div>
-              </a>
+    <section
+      class="flex flex-col items-stretch justify-between gap-10 lg:flex-row"
+    >
+      <div class="w-full place-self-center md:p-5 [&>*]:my-10">
+        <article class="[&>*]:my-6">
+          <h2 class="text-4xl font-extrabold text-gray-800">
+            What is Shopify Functions?
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-gray-700">
+            Shopify Functions is a flexible and powerful feature introduced by
+            Shopify that allows developers to create custom logic and
+            functionality for Shopify stores. By utilizing serverless computing
+            via <strong>AWS Lambda</strong>, Shopify Functions can handle tasks
+            such as automating workflows, creating custom discount logic, and
+            improving the checkout process.
+          </p>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800">
+              How Shopify Functions Work
+            </h3>
+            <p class="mt-2 text-lg text-black">
+              Shopify Functions work by enabling developers to write serverless
+              functions using popular programming languages like <strong>
+                JavaScript, TypeScript, or Python.
+              </strong> These functions are triggered by <a
+                href="https://shopify.dev/docs/api"
+                class="text-blue-500 hover:underline"
+                rel="noopener noreferrer"
+                target="_blank">Shopify API events</a
+              > (such as placing an order or updating inventory) and are executed
+              automatically in a scalable environment. This architecture ensures
+              that the store performs efficiently, even during high-traffic events
+              like flash sales or holidays.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800">
+              Why Use Shopify Functions?
+            </h3>
+            <p class="mt-2 text-lg text-black">
+              Shopify Functions provide store owners with unparalleled
+              flexibility and control. Whether you’re looking to improve
+              customer experience, automate routine tasks, or integrate with
+              third-party systems, Shopify Functions allow you to scale your
+              business with ease. Some specific benefits include:
+            </p>
+
+            <ul class="mt-4 space-y-2">
+              <li class="md:text-lg">
+                <strong>Custom Solutions:</strong> Shopify Functions enable businesses
+                to create tailor-made solutions like custom shipping rates or region-specific
+                discount codes.
+              </li>
+
+              <li class="md:text-lg">
+                <strong>Scalability:</strong> Thanks to AWS Lambda, your functions
+                automatically scale based on demand, ensuring high performance during
+                traffic surges.
+              </li>
+
+              <li class="md:text-lg">
+                <strong>Cost Efficiency:</strong> Because it's serverless, you only
+                pay for the compute time used, reducing costs for businesses with
+                variable traffic.
+              </li>
+
+              <li class="md:text-lg">
+                <strong>Seamless Integration:</strong> Shopify Functions can integrate
+                with third-party systems like <a
+                  href="https://shopify.dev/docs/apps/tools"
+                  class="text-blue-500 hover:underline"
+                  rel="noopener noreferrer"
+                  target="_blank">inventory management apps</a
+                >, payment gateways, or CRM systems.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="[&>*]:my-6">
+          <h2 class="text-4xl font-extrabold text-gray-800">
+            Who Should Use Shopify Functions?
+          </h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            Whether you're a <strong>developer</strong> looking to build custom solutions
+            for your clients or a business owner seeking advanced automation, Shopify
+            Functions offer value for businesses of all sizes:
+          </p>
+
+          <ul class="space-y-2">
+            <li class="md:text-lg">
+              <strong> Developers: </strong> By leveraging serverless computing,
+              developers can create highly customizable, scalable, and efficient
+              applications for Shopify stores.
             </li>
-          ))
-        }
-      </ul>
-    </Container>
-  </section>
+
+            <li class="md:text-lg">
+              <strong> Small Businesses: </strong> Shopify Functions can help small
+              businesses automate time-consuming tasks, freeing up resources for
+              growth.
+            </li>
+
+            <li class="md:text-lg">
+              <strong> Enterprises: </strong> For larger businesses with complex
+              workflows, Shopify Functions allow for advanced integrations, such
+              as connecting with ERP or custom backend systems.
+            </li>
+          </ul>
+
+          <div class="flex items-center justify-center">
+            <iframe
+              class="aspect-video w-full max-w-4xl"
+              src="https://www.youtube.com/embed/6tmNOXe_e5A?si=iJGn82l598UOE9C7"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800">
+              How Shopify Functions Improve Business Operations
+            </h3>
+            <p class="mt-2 text-lg text-black">
+              Shopify Functions can handle numerous tasks that simplify and
+              enhance your business operations, such as:
+            </p>
+
+            <ul class="mt-4 space-y-2">
+              <li class="md:text-lg">
+                <strong> Automating inventory updates: </strong> Ensure real-time
+                product availability with minimal manual effort.
+              </li>
+
+              <li class="md:text-lg">
+                <strong> Customizing checkout flows: </strong> Provide personalized
+                checkout experiences for different customer segments.
+              </li>
+
+              <li class="md:text-lg">
+                <strong> Discount logic automation: </strong> Apply discounts based
+                on order value, location, or customer history, improving both the
+                user experience and conversion rates.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="[&>*]:my-6">
+          <h2 class="text-4xl font-extrabold text-gray-800">
+            Shopify Functions vs. Traditional Shopify Apps
+          </h2>
+          <p class="text-lg text-black">
+            While <a
+              href="/shopify-experts"
+              class="text-blue-500 hover:underline">Shopify apps</a
+            > provide valuable functionality, Shopify Functions take customization
+            to the next level. Unlike external apps, Shopify Functions run directly
+            within Shopify's infrastructure, leading to:
+          </p>
+
+          <ul class="space-y-2">
+            <li class="md:text-lg">
+              <strong> Better Performance: </strong> Functions execute faster as
+              they are natively integrated into Shopify’s environment.
+            </li>
+
+            <li class="md:text-lg">
+              <strong> Cost Savings: </strong> You only pay for compute time used,
+              rather than subscribing to monthly app services.
+            </li>
+
+            <li class="md:text-lg">
+              <strong> More Flexibility: </strong> Developers have full control over
+              the logic they implement, leading to a truly personalized store experience.
+            </li>
+          </ul>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800">
+              Use Cases for Shopify Functions
+            </h3>
+            <p class="mt-2 text-lg text-black">
+              There are endless use cases for Shopify Functions that can enhance
+              both the front-end and back-end of your store:
+            </p>
+
+            <ul class="mt-4 space-y-2">
+              <li class="md:text-lg">
+                <strong> Dynamic Shipping Rates: </strong> Automatically calculate
+                shipping costs based on customer location or package weight.
+              </li>
+
+              <li class="md:text-lg">
+                <strong> Real-time Inventory Management: </strong> Integrate with
+                your inventory system to provide up-to-date stock availability.
+              </li>
+
+              <li class="md:text-lg">
+                <strong> Custom Payment Options: </strong> Offer payment methods
+                based on specific regions or customer segments.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="[&>*]:my-6">
+          <h2 class="text-4xl font-extrabold text-gray-800">
+            How to Get Started with Shopify Functions
+          </h2>
+          <p class="text-lg text-black">
+            To unlock the full potential of Shopify Functions, you'll need the
+            right development tools. <a
+              href="/"
+              class="text-blue-500 hover:underline">Shugert Marketing</a
+            > offers professional Shopify development services to help merchants
+            build custom workflows that optimize their stores. From setting up the
+            Shopify CLI to testing and deploying functions, we ensure that your store
+            is equipped to handle the complexities of modern e-commerce.
+          </p>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800">
+              Best Practices for Shopify Functions
+            </h3>
+            <p class="mt-2 text-lg text-black">
+              To maximize the benefits of Shopify Functions, follow these best
+              practices:
+            </p>
+
+            <ul class="mt-4 space-y-2">
+              <li class="md:text-lg">
+                <strong> Collaborate with Shopify Experts: </strong> Work with an
+                experienced team to ensure that functions are optimized for performance
+                and reliability.
+              </li>
+
+              <li class="md:text-lg">
+                <strong> Test in a Staging Environment: </strong> Always test your
+                custom functions in a staging environment before deploying them to
+                your live store.
+              </li>
+
+              <li class="md:text-lg">
+                <strong> Monitor Performance: </strong> Use Shopify’s built-in tools
+                to monitor the performance of your functions and adjust them as necessary.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="[&>*]:my-6">
+          <h2 class="text-4xl font-extrabold text-gray-800">
+            Conclusion: Take Your Store to the Next Level with Shopify Functions
+          </h2>
+          <p class="text-lg text-black">
+            Shopify Functions offer a powerful, scalable, and cost-efficient way
+            to add custom functionality to your store. Whether you’re automating
+            tasks, enhancing customer experience, or integrating third-party
+            systems, the flexibility of Shopify Functions is unmatched. Ready to
+            unlock the full potential of Shopify Functions for your store?
+          </p>
+
+          <p class="text-lg text-black">
+            <a href="/" class="text-blue-500 hover:underline"
+              >Contact our team at Shugert Marketing</a
+            >
+            today for a free consultation and discover how we can help you create
+            a more powerful, customized Shopify store!
+          </p>
+        </article>
+      </div>
+
+      <aside
+        class="mt-10 flex flex-col items-center space-y-6 md:mt-0 lg:max-w-1/4"
+      >
+        <Picture
+          src={webDevelopmentImage}
+          alt="Web development services illustration"
+          format={"webp"}
+          loading="eager"
+          class="max-w-3/4"
+        />
+        <Picture
+          src={FeatImage}
+          alt="Custom machine learning solutions"
+          format={"webp"}
+          loading="eager"
+          class="max-w-3/4"
+        />
+
+        <div class="rounded-lg bg-[#F8F8F8] p-6 text-center shadow-md">
+          <h2 class="text-lg font-bold text-gray-800">
+            Unlock the Power of Shopify Functions
+          </h2>
+          <p class="mt-2 text-gray-700">
+            Ready to add custom functionality to your store? Discover how
+            Shopify Functions can transform your business with custom workflows,
+            automation, and more.
+          </p>
+          <a
+            href="https://www.shopify.com/collabs/creators"
+            class="mt-4 inline-block rounded-lg bg-[#146FF8] px-6 py-2 text-sm font-semibold text-white uppercase transition hover:bg-[#3282b8]"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Get Started With Custom Functions
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <Separator />
+  </Container>
 </Layout>

@@ -1,4 +1,16 @@
 User-agent: *
+Disallow: /private/
 Allow: /
 
-Sitemap: http://astroship.web3templates.com/sitemap-index.xml
+Sitemap: https://shugert.com.mx/sitemap.xml
+
+# Crawl-delay directive for all crawlers
+Crawl-delay: 10
+
+# Block specific bots
+User-agent: BadBot
+Disallow: /
+
+# Allow Googlebot full access
+User-agent: Googlebot
+Allow: /

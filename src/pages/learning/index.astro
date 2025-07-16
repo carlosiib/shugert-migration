@@ -25,6 +25,7 @@ const learningCenterPosts = [
 <Layout
   title="Learning Center"
   description="Explore our Learning Center for Shopify tutorials, marketing analytics, SEO tips, and CRO strategies to grow your eCommerce business."
+  footerMargin={false}
 >
   <Container>
     <Sectionhead>
@@ -68,5 +69,25 @@ const learningCenterPosts = [
         }
       </ul>
     </Container>
+  </section>
+
+  <section
+    class="flex flex-col items-center justify-center bg-[#146FF8] py-8 text-white"
+  >
+    <div class="text-center">
+      <h1 class="text-3xl font-bold">
+        Ready to Elevate Your eCommerce Business?
+      </h1>
+      <p class="mt-4 text-lg font-medium">
+        Contact our Shopify Experts today for a free consultation.
+      </p>
+      <a
+        class="mt-6 inline-block rounded-lg bg-white px-6 py-3 font-semibold text-[#146FF8] uppercase transition hover:bg-[#3282b8]"
+        href="/contact"
+        aria-label="Get Started with Shopify Experts"
+      >
+        Get Started
+      </a>
+    </div>
   </section>
 </Layout>

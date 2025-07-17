@@ -33,13 +33,64 @@ const { page } = Astro.props;
 
 <Layout title="Blog">
   <Container>
-    <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
-      <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
-      </Fragment>
-    </Sectionhead>
-    <main class="mt-16">
+    <header class="text-center md:p-4 [&>*]:my-10">
+      <div class="">
+        <h1 class="text-5xl font-extrabold lg:text-7xl">
+          Creative Shopify Solutions to Elevate Your Brand
+        </h1>
+        <p class="mt-4 text-lg text-black lg:text-xl">
+          We are a specialized Shopify agency helping businesses boost their
+          online presence and brand visibility through customized Shopify
+          solutions and targeted digital strategies that align with each
+          client’s unique goals.
+        </p>
+      </div>
+
+      <div class="flex justify-center space-x-4">
+        <a href="/contact">
+          <button
+            class="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-4xl bg-[#3282b8] font-semibold shadow-md hover:shadow-lg focus:ring-2 focus:ring-blue-300"
+            aria-label="Contact Us"
+            ><div
+              class="inline-flex h-14 translate-y-0 items-center justify-center px-8 text-lg text-white transition-transform duration-500 group-hover:-translate-y-[150%]"
+            >
+              Contact Us
+            </div><div
+              class="absolute inline-flex h-14 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition-transform duration-500 group-hover:translate-y-0"
+            >
+              <span
+                class="absolute h-full w-full translate-y-full scale-y-0 skew-y-12 bg-black transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-150"
+              ></span><span class="z-10 text-lg">Contact Us</span>
+            </div>
+          </button>
+        </a>
+
+        <a href="/shopify-experts">
+          <button
+            class="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-4xl border bg-white font-semibold shadow-md hover:shadow-lg focus:ring-2 focus:ring-gray-300"
+            aria-label="View Our Services"
+            ><div
+              class="inline-flex h-14 translate-y-0 items-center justify-center px-8 text-lg text-black transition-transform duration-500 group-hover:-translate-y-[150%]"
+            >
+              View Our Services
+            </div><div
+              class="absolute inline-flex h-14 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition-transform duration-500 group-hover:translate-y-0"
+            >
+              <span
+                class="absolute h-full w-full translate-y-full scale-y-0 skew-y-10 bg-black transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-150"
+              ></span><span class="z-10 text-lg">View Our Services</span>
+            </div>
+          </button>
+        </a>
+      </div>
+
+      <h3 class="text-2xl font-bold text-gray-800">
+        Shugert has helped over 600 Shopify stores achieve their e-commerce
+        goals since 2016
+      </h3>
+    </header>
+
+    <section class="mt-16">
       <ul class="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:gap-16">
         {
           page.data.map((post, index) => (
@@ -85,6 +136,6 @@ const { page } = Astro.props;
         }
       </ul>
       <Pagination url={page.url} />
-    </main>
+    </section>
   </Container>
 </Layout>

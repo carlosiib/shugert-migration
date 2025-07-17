@@ -74,7 +74,7 @@ const makeTitle = title
 
     <meta
       name="keywords"
-      content="digital solutions, marketing, Shugert, innovative strategies"
+      content="digital solutions, marketing, Shugert, innovative strategies, Shopify, e-commerce"
     />
     <meta name="author" content="Shugert Team" />
     <meta name="robots" content="index, follow" />
@@ -101,7 +101,9 @@ const makeTitle = title
   </head>
   <body>
     <Navbar />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer margin={footerMargin} />
   </body>
 </html>

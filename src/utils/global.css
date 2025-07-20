@@ -10,3 +10,82 @@ body {
   line-height: 1.5;
 }
 
+.markdownstyles {
+  @apply bg-white;
+}
+
+.markdownstyles hr {
+  @apply my-8 border-t-2 border-gray-300;
+}
+
+.markdownstyles h1 {
+  @apply my-8 text-4xl font-extrabold text-gray-800;
+}
+
+.markdownstyles h2 {
+  @apply my-6 text-2xl font-extrabold text-gray-800;
+}
+
+.markdownstyles h3 {
+  @apply my-6 text-2xl font-bold text-gray-800;
+}
+
+.markdownstyles p {
+  @apply mb-6 text-xl leading-relaxed text-gray-700;
+}
+
+.markdownstyles ul {
+  @apply mb-6 list-disc space-y-6 pl-10;
+}
+
+.markdownstyles ol {
+  @apply mb-6 list-decimal space-y-6 pl-10;
+}
+
+.markdownstyles li {
+  @apply my-3 text-lg text-gray-700;
+}
+
+.markdownstyles table {
+  @apply mt-6 mb-8 w-full border-collapse border border-gray-300;
+}
+
+.markdownstyles th {
+  @apply border border-gray-300 bg-gray-100 px-6 py-4 text-left font-bold text-gray-800;
+}
+
+.markdownstyles td {
+  @apply border border-gray-300 px-6 py-4 text-gray-700;
+}
+
+.markdownstyles tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+
+.markdownstyles blockquote {
+  @apply my-6 rounded-xl border-l-4 bg-[#02021E08] p-6 pl-6 text-gray-600 italic;
+}
+
+.markdownstyles blockquote p {
+  @apply m-0;
+}
+
+.markdownstyles a {
+  @apply text-blue-500 hover:underline;
+}
+
+.markdownstyles pre {
+  @apply my-6;
+}
+
+.markdownstyles .custommarkdownatag {
+  @apply py-6 text-center;
+}
+
+.markdownstyles .custommarkdownatag h1 {
+  @apply text-5xl font-extrabold lg:text-6xl;
+}
+
+.markdownstyles .custommarkdownatag a {
+  @apply inline-block rounded-4xl bg-black px-10 py-2 font-bold text-white transition duration-300 hover:bg-blue-600 md:px-20 md:py-3 lg:px-40 lg:py-4;
+}

@@ -21,7 +21,7 @@ Looking for the best all-around team to help you conquer the digital arena? From
 
 Today, we’re extremely excited to announce a delightful recognition that was made possible by our clients’ gracious support. During The Manifest’s first-ever company awards, Shugert Marketing was hailed as a [top performer](https://themanifest.com/mx/it-services/companies#most-reviewed "The Manifest Mexico - Top Performers") in our space! According to their latest report, our team is among Mexico’s best recommended IT services providers for 2022!
 
-> “We are thrilled to found ourselves awarded as one of the top B2B marketing agencies in Mexico. We are launching operations in Barcelona, Spain very soon and hope to bring our top-performing team to Europe.” — Samuel Noriega, CEO of Shugert Marketing
+> **“We are thrilled to found ourselves awarded as one of the top B2B marketing agencies in Mexico. We are launching operations in Barcelona, Spain very soon and hope to bring our top-performing team to Europe.”** — Samuel Noriega, CEO of Shugert Marketing
 
 This is great news! It comes as a treat for us as we expand our team further and open a new office in Barcelona to cater to our European partners. Founded in 2006, this team has become a tight-knit family of incredibly talented creators, designers, writers, illustrators, coders, animators, data scientists, digital marketing specialists, and content generators. It’s so surreal looking back at our humble beginnings.
 

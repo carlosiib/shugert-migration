@@ -6,6 +6,14 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Pagination from "@components/pagination.astro";
 
+import blogAboutUsImage from "@assets/blog/about-04.png";
+import enhanceCROImage from "@assets/blog/content-04.png";
+import blogIcon01 from "@assets/blog/content-icon01.png";
+import blogIcon02 from "@assets/blog/content-icon02.png";
+import blogIcon03 from "@assets/blog/content-icon03.png";
+
+import Contactform from "@components/contactform.astro";
+
 export async function getStaticPaths({
   paginate,
 }: {
@@ -29,14 +37,18 @@ export async function getStaticPaths({
 const { page } = Astro.props;
 ---
 
-<Layout title="Blog">
+<Layout
+  title="Blog - Creative Shopify Solutions"
+  description="Explore the latest Shopify tips, news, and strategies to elevate your e-commerce business with Shugert's expert insights."
+  footerMargin={false}
+>
   <Container>
     <header class="text-center md:p-4 [&>*]:my-10">
-      <div class="">
+      <div>
         <h1 class="text-5xl font-extrabold lg:text-7xl">
           Creative Shopify Solutions to Elevate Your Brand
         </h1>
-        <p class="mt-4 text-lg text-black lg:text-xl">
+        <p class="mt-4 text-lg text-gray-700 lg:text-xl">
           We are a specialized Shopify agency helping businesses boost their
           online presence and brand visibility through customized Shopify
           solutions and targeted digital strategies that align with each
@@ -44,52 +56,56 @@ const { page } = Astro.props;
         </p>
       </div>
 
-      <div class="flex justify-center space-x-4">
-        <a href="/contact">
+      <div class="mt-6 flex justify-center space-x-4">
+        <a href="/contact" aria-label="Contact Us">
           <button
             class="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-4xl bg-[#3282b8] font-semibold shadow-md hover:shadow-lg focus:ring-2 focus:ring-blue-300"
-            aria-label="Contact Us"
-            ><div
+          >
+            <div
               class="inline-flex h-14 translate-y-0 items-center justify-center px-8 text-lg text-white transition-transform duration-500 group-hover:-translate-y-[150%]"
             >
               Contact Us
-            </div><div
+            </div>
+            <div
               class="absolute inline-flex h-14 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition-transform duration-500 group-hover:translate-y-0"
             >
               <span
                 class="absolute h-full w-full translate-y-full scale-y-0 skew-y-12 bg-black transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-150"
-              ></span><span class="z-10 text-lg">Contact Us</span>
+              ></span>
+              <span class="z-10 text-lg">Contact Us</span>
             </div>
           </button>
         </a>
 
-        <a href="/shopify-experts">
+        <a href="/shopify-experts" aria-label="View Our Services">
           <button
-            class="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-4xl border bg-white font-semibold shadow-md hover:shadow-lg focus:ring-2 focus:ring-gray-300"
-            aria-label="View Our Services"
-            ><div
+            class="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-4xl bg-white font-semibold shadow-md hover:shadow-lg focus:ring-2 focus:ring-gray-300"
+          >
+            <div
               class="inline-flex h-14 translate-y-0 items-center justify-center px-8 text-lg text-black transition-transform duration-500 group-hover:-translate-y-[150%]"
             >
               View Our Services
-            </div><div
+            </div>
+            <div
               class="absolute inline-flex h-14 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition-transform duration-500 group-hover:translate-y-0"
             >
               <span
                 class="absolute h-full w-full translate-y-full scale-y-0 skew-y-10 bg-black transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-150"
-              ></span><span class="z-10 text-lg">View Our Services</span>
+              ></span>
+              <span class="z-10 text-lg">View Our Services</span>
             </div>
           </button>
         </a>
       </div>
 
-      <h3 class="text-2xl font-bold text-gray-800">
+      <h3 class="mt-8 text-2xl font-bold text-gray-800">
         Shugert has helped over 600 Shopify stores achieve their e-commerce
         goals since 2016
       </h3>
     </header>
   </Container>
 
-  <section class="mt-16 bg-[#F9F9FA]">
+  <section class="bg-[#F9F9FA] py-4">
     <Container>
       <h1
         class="p-10 text-center text-3xl font-extrabold sm:text-4xl md:text-5xl"
@@ -99,41 +115,52 @@ const { page } = Astro.props;
       <ul class="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:gap-16">
         {
           page.data.map((post, index) => (
-            <li>
-              <a href={`/blog/${post.slug}`}>
-                <div>
-                  {post.data.image.src && (
+            <li class="group overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg">
+              <a
+                href={`/blog/${post.slug}`}
+                class="block h-full"
+                aria-label={`Read more about ${post.data.title}`}
+              >
+                <div class="relative">
+                  {post.data.image.src ? (
                     <Picture
                       formats={["avif", "webp"]}
                       src={post.data.image.src}
-                      alt={post.data.image.alt}
+                      alt={
+                        post.data.image.alt || `Image for ${post.data.title}`
+                      }
                       sizes="(max-width: 800px) 100vw, 800px"
                       width={800}
                       height={600}
                       loading={index <= 2 ? "eager" : "lazy"}
                       decoding={index <= 2 ? "sync" : "async"}
-                      class="w-full rounded-md object-cover"
+                      class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       transition:name={`post-img-${post.slug}`}
                     />
+                  ) : (
+                    <div class="flex h-48 w-full items-center justify-center bg-gray-200 text-gray-500">
+                      <span class="text-lg font-semibold">
+                        No Image Available
+                      </span>
+                    </div>
                   )}
 
-                  <div class="mt-4">
-                    <span class="text-xs font-medium tracking-wider text-blue-400 uppercase">
-                      {post.data.category}
-                    </span>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                </div>
 
-                    <h2 class="mt-1 text-xl leading-snug font-semibold tracking-tight">
-                      {post.data.title}
-                    </h2>
+                <div class="p-4">
+                  <span class="text-xs font-medium tracking-wider text-blue-400 uppercase">
+                    {post.data.category}
+                  </span>
 
-                    <div class="mt-3 flex gap-2 text-sm">
-                      <time
-                        class="text-gray-400"
-                        datetime={post.data.publishDate.toISOString()}
-                      >
-                        {post.data.publishDate.toDateString()}
-                      </time>
-                    </div>
+                  <h2 class="mt-2 text-xl leading-snug font-semibold tracking-tight text-gray-800 transition-colors duration-300 group-hover:text-blue-500">
+                    {post.data.title}
+                  </h2>
+
+                  <div class="mt-3 flex gap-2 text-sm text-gray-500">
+                    <time datetime={post.data.publishDate.toISOString()}>
+                      {post.data.publishDate.toDateString()}
+                    </time>
                   </div>
                 </div>
               </a>
@@ -144,4 +171,119 @@ const { page } = Astro.props;
       <Pagination url={page.url} />
     </Container>
   </section>
+
+  <Container>
+    <div class="my-8 [&>*]:my-6">
+      <section
+        class="flex flex-col items-stretch justify-evenly md:flex-row md:gap-10"
+      >
+        <div class="place-self-center">
+          <h1
+            class="mb-4 text-4xl leading-relaxed font-extrabold text-gray-800"
+          >
+            As Shopify developers, we help store owners build personal
+            connections with their customers.
+          </h1>
+          <a href="/shopify-experts">
+            <button
+              class="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-4xl bg-[#3282b8] font-semibold shadow-md hover:shadow-lg focus:ring-2 focus:ring-blue-300"
+              aria-label="Learn More"
+              ><div
+                class="inline-flex h-14 translate-y-0 items-center justify-center px-8 text-lg text-white transition-transform duration-500 group-hover:-translate-y-[150%]"
+              >
+                Learn More
+              </div><div
+                class="absolute inline-flex h-14 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition-transform duration-500 group-hover:translate-y-0"
+              >
+                <span
+                  class="absolute h-full w-full translate-y-full scale-y-0 skew-y-12 bg-black transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-150"
+                ></span><span class="z-10 text-lg">Learn More</span>
+              </div>
+            </button>
+          </a>
+        </div>
+        <div class="mt-10 place-self-center md:mt-0">
+          <Picture
+            src={blogAboutUsImage}
+            alt="Services"
+            format={"webp"}
+            loading="lazy"
+            class="h-auto lg:max-w-lg"
+          />
+        </div>
+      </section>
+
+      <section
+        class="flex flex-col items-stretch justify-evenly md:flex-row md:gap-16"
+      >
+        <div class="mt-10 place-self-center md:mt-0">
+          <Picture
+            src={enhanceCROImage}
+            alt="Services"
+            format={"webp"}
+            loading="lazy"
+            class="h-auto lg:max-w-lg"
+          />
+        </div>
+        <div class="place-self-center">
+          <h1 class="my-8 text-4xl font-extrabold text-gray-800">
+            Enhance Sales Through CRO-Focused Theme Customizations
+          </h1>
+          <div class="mt-4 flex gap-4">
+            <Picture
+              src={blogIcon01}
+              alt="Services"
+              format={"webp"}
+              loading="lazy"
+              class="max-w-md"
+            />
+            <div class="mb-6 pr-0.5 text-xl leading-relaxed text-gray-700">
+              <h3 class="font-bold">Analytics and Reporting</h3>
+              <p>
+                We utilize Shopify's analytics tools to track and measure your
+                store's performance, providing you with actionable, data-driven
+                insights to optimize sales and conversions.
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 flex gap-4">
+            <Picture
+              src={blogIcon02}
+              alt="Services"
+              format={"webp"}
+              loading="lazy"
+              class="max-w-md"
+            />
+            <div class="mb-6 pr-0.5 text-xl leading-relaxed text-gray-700">
+              <h3 class="font-bold">Trend Analysis</h3>
+              <p>
+                Stay updated on e-commerce trends, algorithm changes, and
+                emerging platforms to adapt your Shopify strategies accordingly
+                and stay ahead of the competition.
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 flex gap-4">
+            <Picture
+              src={blogIcon03}
+              alt="Services"
+              format={"webp"}
+              loading="lazy"
+              class="max-w-md"
+            />
+            <div class="mb-6 pr-0.5 text-xl leading-relaxed text-gray-700">
+              <h3 class="font-bold">Client Education</h3>
+              <p>
+                Empower yourself with knowledge of Shopify best practices,
+                industry trends, and the evolving e-commerce landscape,
+                fostering a collaborative approach to growing your business.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </Container>
+
+  <Contactform />
 </Layout>

@@ -1,0 +1,97 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import { Picture, Image } from "astro:assets";
+
+import HeroSectionZebra from "@assets/shugert/hero-screenshot.png";
+import ShopifySelectedVerifiedBadge from "@assets/shugert/shopify-select-partner-badge.png";
+
+const metaDescription =
+  "Certified Shopify Experts offering tailored solutions for design, development, and SEO to boost your store's performance.";
+---
+
+<Layout title="Shopify Experts" description={metaDescription}>
+  <section
+    class="bg-gradient-to-br from-[#30e9be4d] via-[#15bcdf0d] to-[#15bcdf4d] py-4"
+    aria-labelledby="shopify-experts-section"
+  >
+    <Container>
+      <section
+        class="flex flex-col items-stretch justify-evenly md:m-4 md:flex-row md:p-4"
+      >
+        <div class="place-self-center md:p-5">
+          <h1
+            id="shopify-experts-section"
+            class="text-md mb-6 font-semibold tracking-tight text-gray-700"
+          >
+            Boost Your Shopify Sales with Expert Design & Development
+          </h1>
+          <h2 class="text-5xl font-extrabold text-gray-800">
+            Certified Shopify Experts Solving Your Store’s Biggest Challenges
+          </h2>
+          <p class="mt-4 max-w-xl text-lg text-gray-700 lg:text-xl">
+            From custom theme design and app integrations to performance and SEO
+            optimizations, our Shopify specialists deliver rapid, tailored
+            solutions so you can focus on selling.
+          </p>
+
+          <div class="mt-6 flex justify-center space-x-4 md:justify-start">
+            <a
+              href="https://clients.shugert.com.mx/public-forms/68370ba993ff67d7ddb34c8f"
+              aria-label="Get a Free Quote"
+            >
+              <button
+                class="group relative h-14 items-center justify-center rounded-4xl bg-[#061C3E] font-semibold shadow-md hover:bg-[#044080] hover:shadow-lg focus:ring-2 focus:ring-blue-300"
+              >
+                <div
+                  class="items-center justify-center px-8 text-lg text-white"
+                >
+                  Get a Free Quote
+                </div>
+              </button>
+            </a>
+
+            <a
+              href="https://clients.shugert.com.mx/"
+              aria-label="Create a Free Account"
+            >
+              <button
+                class="group relative h-14 items-center justify-center rounded-4xl bg-white font-semibold shadow-md hover:bg-gray-100 hover:shadow-lg focus:ring-2 focus:ring-gray-300"
+              >
+                <div
+                  class="inline-flex items-center justify-center px-8 text-lg text-gray-700"
+                >
+                  Create a Free Account
+                </div>
+              </button>
+            </a>
+          </div>
+
+          <div class="mt-6">
+            <a
+              href="https://www.shopify.com/partners/directory/partner/shugert-marketing"
+              aria-label="View our Shopify Partner Profile"
+            >
+              <Picture
+                src={ShopifySelectedVerifiedBadge}
+                alt="Shopify Selected Verified Partner Badge"
+                format={"webp"}
+                loading="eager"
+                class="h-auto max-w-6/12 md:max-w-3/12"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="mt-10 place-self-center md:mt-0">
+          <Picture
+            src={HeroSectionZebra}
+            alt="Hero Section showcasing Shugert's Shopify expertise"
+            format={"webp"}
+            loading="eager"
+            class="h-auto lg:max-w-md"
+          />
+        </div>
+      </section>
+    </Container>
+  </section>
+</Layout>

@@ -8,132 +8,61 @@ import icon2 from "../assets/shugert/Paso2.png";
 import icon3 from "../assets/shugert/Paso3.png";
 import icon4 from "../assets/shugert/Paso4.png";
 import icon5 from "../assets/shugert/Paso5.png";
+
+const benefitsExplained = [
+  {
+    src: icon1,
+    title: "01. Initial Research",
+    text: "We learn all about what your company is about including your long term goals and challenges.",
+  },
+  {
+    src: icon2,
+    title: "02. Ideation phase",
+    text: "We'll analyze which channels and approach you're currently using to market your company.",
+  },
+  {
+    src: icon3,
+    title: "03. Campaign launch",
+    text: "Next, we lay the foundation of your marketing efforts by setting up the appropriate systems to maximize your budget.",
+  },
+  {
+    src: icon4,
+    title: "04. Revision",
+    text: "Using the channels that work for your company, we'll develop campaigns that attract, convert, close, and delight your customers.",
+  },
+  {
+    src: icon5,
+    title: "05. Optimization",
+    text: "Each month we'll review what's working and what needs to be optimized.",
+  },
+];
 ---
 
-<Container>
-  <div class="mt-24 text-center">
-    <Badge color="blue"
-      >A GOOD PRODUCTION PROCESS MAKES FOR BETTER QUALITY
-      CONTROL</Badge
-    >
-    <h2
-      class="text-4xl lg:text-5xl font-black lg:tracking-tight text-center">
-      Our typical <span class="text-[color:--primary-color]"
-        >custom process</span
-      > consists of:
-    </h2>
-  </div>
-</Container>
+<div class="mt-24 text-center">
+  <h1 class="text-md mb-2 font-semibold tracking-tight text-black">
+    A good production process makes for better quality control
+  </h1>
+  <h2 class="my-6 text-4xl font-extrabold text-gray-800">
+    Our typical custom process consists of:
+  </h2>
+</div>
 
-<div class="mt-10 relative overflow-x-clip">
-  <div>
-    <h2 class="text-center text-slate-500">
-      Trusted by popular startups you know
-    </h2>
-    <div
-      class="flex flex-wrap gap-x-1 gap-y-4 items-center justify-center mt-6 flex-wrap">
-      <div
-        class="text-gray-500 my-2 w-11/12 md:w-1/2 lg:w-1/6 min-w-[200px]">
-        <div
-          class="h-[150px] flex justify-center items-center mb-3">
-          <Picture
-            src={icon1}
-            alt="Feature Image"
-            formats={["avif", "webp"]}
-            loading="lazy"
-          />
-        </div>
-        <div class="flex gap-x-2 mt-2">
-          <span class="font-bold">01.</span>
-          <span class="font-bold">Initial Research</span>
-        </div>
-        <p>
-          We learn all about what your company is about
-          including your long term goals and challenges.
-        </p>
+<div class="my-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
+  {
+    benefitsExplained.map((benefitExplained, index) => (
+      <div class="flex flex-col items-center p-6 text-center">
+        <Picture
+          src={benefitExplained.src}
+          alt={benefitExplained.title || `Card image ${index + 1}`}
+          class="h-auto max-w-sm object-contain"
+          loading="lazy"
+          height={100}
+        />
+        <h3 class="mb-4 text-xl font-bold text-gray-800">
+          {benefitExplained.title}
+        </h3>
+        <p class="text-gray-600">{benefitExplained.text}</p>
       </div>
-      <div
-        class="text-gray-500 my-2 w-11/12 md:w-1/2 lg:w-1/6 min-w-[200px]">
-        <div
-          class="h-[150px] flex justify-center items-center mb-3">
-          <Picture
-            src={icon2}
-            alt="Feature Image"
-            formats={["avif", "webp"]}
-            loading="lazy"
-          />
-        </div>
-        <div class="flex gap-x-2 mt-2">
-          <span class="font-bold">01.</span>
-          <span class="font-bold">Initial Research</span>
-        </div>
-        <p>
-          We learn all about what your company is about
-          including your long term goals and challenges.
-        </p>
-      </div>
-      <div
-        class="text-gray-500 my-2 w-11/12 md:w-1/2 lg:w-1/6 min-w-[200px]">
-        <div
-          class="h-[150px] flex justify-center items-center mb-3">
-          <Picture
-            src={icon3}
-            alt="Feature Image"
-            formats={["avif", "webp"]}
-            loading="lazy"
-          />
-        </div>
-        <div class="flex gap-x-2 mt-2">
-          <span class="font-bold">01.</span>
-          <span class="font-bold">Initial Research</span>
-        </div>
-        <p>
-          We learn all about what your company is about
-          including your long term goals and challenges.
-        </p>
-      </div>
-      <div
-        class="text-gray-500 my-2 w-11/12 md:w-1/2 lg:w-1/6 min-w-[200px]">
-        <div
-          class="h-[150px] flex justify-center items-center mb-3">
-          <Picture
-            src={icon4}
-            alt="Feature Image"
-            formats={["avif", "webp"]}
-            loading="lazy"
-            class="flex justify-center object-contain"
-          />
-        </div>
-        <div class="flex gap-x-2 mt-2">
-          <span class="font-bold">01.</span>
-          <span class="font-bold">Initial Research</span>
-        </div>
-        <p>
-          We learn all about what your company is about
-          including your long term goals and challenges.
-        </p>
-      </div>
-      <div
-        class="text-gray-500 my-2 w-11/12 md:w-1/2 lg:w-1/6 min-w-[200px]">
-        <div
-          class="h-[150px] flex justify-center items-center mb-3">
-          <Picture
-            src={icon5}
-            alt="Feature Image"
-            formats={["avif", "webp"]}
-            loading="lazy"
-            class=""
-          />
-        </div>
-        <div class="flex gap-x-2 mt-2">
-          <span class="font-bold">01.</span>
-          <span class="font-bold">Initial Research</span>
-        </div>
-        <p>
-          We learn all about what your company is about
-          including your long term goals and challenges.
-        </p>
-      </div>
-    </div>
-  </div>
+    ))
+  }
 </div>

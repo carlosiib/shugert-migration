@@ -1,0 +1,724 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import { Picture } from "astro:assets";
+
+import HeroSectionZebra from "@assets/shugert/hero-screenshot.png";
+import ShopifySelectedVerifiedBadge from "@assets/shugert/shopify-select-partner-badge.png";
+
+import boletaje from "@assets/shugert_experts/boletaje.png";
+import oomami from "@assets/shugert_experts/oomami.png";
+import shay from "@assets/shugert_experts/shay.png";
+import thread_seed from "@assets/shugert_experts/thread+seed.png";
+import valley from "@assets/shugert_experts/valley.png";
+import Websites_thumbs_1 from "@assets/shugert_experts/Websites_thumbs-1.png";
+import Websites_thumbs_2 from "@assets/shugert_experts/Websites_thumbs-2.png";
+import Websites_thumbs_3 from "@assets/shugert_experts/Websites_thumbs-3.png";
+import Websites_thumbs_4 from "@assets/shugert_experts/Websites_thumbs-4.png";
+import Websites_thumbs_5 from "@assets/shugert_experts/Websites_thumbs-5.png";
+import Websites_thumbs_6 from "@assets/shugert_experts/Websites_thumbs-6.png";
+
+import Features_Fix_styles from "@assets/shugert_experts/Features_Fix_styles.png";
+import Feature_Collections from "@assets/shugert_experts/Feature-Collections.png";
+import Feature_Product_pages from "@assets/shugert_experts/Feature-Product-pages.png";
+import feature_Custom_graphics from "@assets/shugert_experts/feature-Custom-graphics.png";
+import Feature_Cart_pages from "@assets/shugert_experts/Feature-Cart-pages.png";
+import Feature_Shopify_Apps from "@assets/shugert_experts/Feature-Shopify-Apps.png";
+
+import Icon_Shopify_experts from "@assets/shugert_experts/Icon_Shopify_experts.png";
+import Icon_Flexible_Pricing from "@assets/shugert_experts/Icon_Flexible_Pricing.png";
+import Icon_Turnaround from "@assets/shugert_experts/Icon_Turnaround.png";
+import Icon_Safe_Secure from "@assets/shugert_experts/Icon_Safe_Secure.png";
+
+import Select_Task from "@assets/shugert_experts/Select_Task.png";
+import PaySubscribe from "@assets/shugert_experts/PaySubscribe.png";
+import MarkComplete from "@assets/shugert_experts/MarkComplete.png";
+
+const realBrancs = [
+  {
+    src: Websites_thumbs_1,
+    alt: "Website thumbnail 1",
+  },
+  {
+    src: Websites_thumbs_2,
+    alt: "Website thumbnail 2",
+  },
+  {
+    src: Websites_thumbs_3,
+    alt: "Website thumbnail 3",
+  },
+  {
+    src: Websites_thumbs_4,
+    alt: "Website thumbnail 4",
+  },
+  {
+    src: Websites_thumbs_5,
+    alt: "Website thumbnail 5",
+  },
+  {
+    src: Websites_thumbs_6,
+    alt: "Website thumbnail 6",
+  },
+  {
+    src: shay,
+    alt: "Shay brand logo",
+  },
+  {
+    src: oomami,
+    alt: "Oomami brand logo",
+  },
+  {
+    src: valley,
+    alt: "Valley brand logo",
+  },
+  {
+    src: thread_seed,
+    alt: "Thread + Seed brand logo",
+  },
+  {
+    src: boletaje,
+    alt: "Boletaje brand logo",
+  },
+];
+
+const cardImages = [
+  {
+    src: Features_Fix_styles,
+    heading: "Design & Development Fix & Style Themes",
+  },
+  {
+    src: Feature_Collections,
+    heading: "Store Setup Organize Shop Collections",
+  },
+  {
+    src: Feature_Product_pages,
+    heading: "Custom Themes Customize Product Pages",
+  },
+  {
+    src: feature_Custom_graphics,
+    heading: "Web Design Create Custom Graphics",
+  },
+  { src: Feature_Cart_pages, heading: "Boost Conversions Optimize Cart Pages" },
+  { src: Feature_Shopify_Apps, heading: "App Integration SEO & SEM Setup" },
+];
+
+const benefitCards = [
+  {
+    title: "Specialized Team",
+    text: "Certified Shopify experts focused on speed, design, SEO and conversion rate optimization.",
+  },
+  {
+    title: "Laser-Focused Solutions",
+    text: "We address the exact pain points holding your store back, from theme glitches to UX hurdles.",
+  },
+  {
+    title: "Proven Track Record",
+    text: "600+ stores served across diverse industries, delivering measurable business growth.",
+  },
+  {
+    title: "Flexible Pricing",
+    text: "Choose one-hour tasks starting at $89 or monthly packages from $690/mo—your call.",
+  },
+  {
+    title: "Quick Turnarounds",
+    text: "Most tasks completed within 48 hours, keeping your store agile and profitable.",
+  },
+  {
+    title: "Fully Secure",
+    text: "Your store’s data is protected at every step with our rigorous security protocols.",
+  },
+];
+
+const benefitsExplained = [
+  {
+    src: Icon_Shopify_experts,
+    title: "Certified Shopify Consultants",
+    text: "Our certified experts have completed 1,200+ store upgrades—from bespoke theme customizations to advanced speed tuning.",
+  },
+  {
+    src: Icon_Flexible_Pricing,
+    title: "Flexible Pricing Options",
+    text: "Choose one-hour tasks at $99 each or opt for a $790/mo package that includes 10 credits for ongoing Shopify support.",
+  },
+  {
+    src: Icon_Turnaround,
+    title: "Rapid Turnaround",
+    text: "Most Shopify tasks are completed within 1–2 business days—so your store stays fast, fresh, and profitable.",
+  },
+  {
+    src: Icon_Safe_Secure,
+    title: "Enterprise-Level Security",
+    text: "We employ Shopify-approved security best practices to keep your store’s data and customers’ information fully protected.",
+  },
+];
+
+const HowItWorkCards = [
+  {
+    step: 1,
+    src: Select_Task,
+    title: "Submit Your Task Request",
+    text: "Tell us what you need: describe your project, share screenshots or docs, and we’ll match you with the right Shopify expert.",
+  },
+  {
+    step: 2,
+    src: PaySubscribe,
+    title: "Purchase Credits",
+    text: "Securely buy one-hour tasks or bulk credits via credit card or PayPal. Each credit unlocks an hour of expert Shopify work.",
+  },
+  {
+    step: 3,
+    src: MarkComplete,
+    title: "Revise & Approve",
+    text: "Receive your completed task, review the results, and request unlimited revisions until you’re 100% satisfied.",
+  },
+];
+
+const FAQTexts = [
+  {
+    title: "How can I submit my tasks?",
+    text: "Describe your project, upload screenshots or docs, and our platform will match you with the right Shopify expert. You can also use live chat for immediate assistance.",
+  },
+  {
+    title: "What are “Shopify Small Tasks”?",
+    text: "Small tasks are one- to two-hour projects—theme tweaks, page layout adjustments, speed optimizations. Get quick wins without a big commitment.",
+  },
+  {
+    title: "Can you handle larger Shopify projects?",
+    text: "Yes—beyond small tasks, we manage full store builds, migrations, and redesigns with flat-fee or custom quotes based on complexity..",
+  },
+  {
+    title: "Do you offer next-business-day delivery?",
+    text: "For most small tasks, yes! Submit by midnight ET and get your solution the next business day. Let us know if you have a critical deadline.",
+  },
+  {
+    title: "Why trust Shugert with my store?",
+    text: "Since 2016, we’ve helped 600+ Shopify stores scale. Our global team resolves technical issues and delivers custom features—backed by over 190 five-star reviews.",
+  },
+  {
+    title: "What if I don’t use all my credits?",
+    text: "Unused credits roll over for up to three months, giving you the flexibility to request tasks when you need them most.",
+  },
+  {
+    title: "Do you support other languages?",
+    text: "Yes—our Shopify experts speak English and Spanish, serving clients in the USA, Canada, Mexico, Spain, and beyond.",
+  },
+];
+
+const metaDescription =
+  "Certified Shopify Experts offering tailored solutions for design, development, and SEO to boost your store's performance.";
+---
+
+<Layout title="Shopify Experts" description={metaDescription}>
+  <section
+    class="bg-gradient-to-br from-[#30e9be4d] via-[#15bcdf0d] to-[#15bcdf4d] py-4"
+    aria-labelledby="shopify-experts-section"
+  >
+    <Container>
+      <section
+        class="flex flex-col items-stretch justify-evenly md:m-4 md:flex-row md:p-4"
+      >
+        <div class="place-self-center md:p-5">
+          <h1
+            id="shopify-experts-section"
+            class="text-md mb-6 font-semibold tracking-tight text-gray-700"
+          >
+            Boost Your Shopify Sales with Expert Design & Development
+          </h1>
+          <h2 class="text-5xl font-extrabold text-gray-800">
+            Certified Shopify Experts Solving Your Store’s Biggest Challenges
+          </h2>
+          <p class="mt-4 max-w-xl text-lg text-gray-700 lg:text-xl">
+            From custom theme design and app integrations to performance and SEO
+            optimizations, our Shopify specialists deliver rapid, tailored
+            solutions so you can focus on selling.
+          </p>
+
+          <div class="mt-6 flex justify-center space-x-4 md:justify-start">
+            <a
+              href="https://clients.shugert.com.mx/public-forms/68370ba993ff67d7ddb34c8f"
+              aria-label="Get a Free Quote"
+            >
+              <button
+                class="group relative h-14 items-center justify-center rounded-4xl bg-[#061C3E] font-semibold shadow-md hover:bg-[#044080] hover:shadow-lg focus:ring-2 focus:ring-blue-300"
+              >
+                <div
+                  class="items-center justify-center px-8 text-lg text-white"
+                >
+                  Get a Free Quote
+                </div>
+              </button>
+            </a>
+
+            <a
+              href="https://clients.shugert.com.mx/"
+              aria-label="Create a Free Account"
+            >
+              <button
+                class="group relative h-14 items-center justify-center rounded-4xl bg-white font-semibold shadow-md hover:bg-gray-100 hover:shadow-lg focus:ring-2 focus:ring-gray-300"
+              >
+                <div
+                  class="inline-flex items-center justify-center px-8 text-lg text-gray-700"
+                >
+                  Create a Free Account
+                </div>
+              </button>
+            </a>
+          </div>
+
+          <div class="mt-6">
+            <a
+              href="https://www.shopify.com/partners/directory/partner/shugert-marketing"
+              aria-label="View our Shopify Partner Profile"
+            >
+              <Picture
+                src={ShopifySelectedVerifiedBadge}
+                alt="Shopify Selected Verified Partner Badge"
+                format={"webp"}
+                loading="eager"
+                class="h-auto max-w-6/12 md:max-w-3/12"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="mt-10 place-self-center md:mt-0">
+          <Picture
+            src={HeroSectionZebra}
+            alt="Hero Section showcasing Shugert's Shopify expertise"
+            format={"webp"}
+            loading="eager"
+            class="h-auto lg:max-w-md"
+          />
+        </div>
+      </section>
+    </Container>
+  </section>
+
+  <Container>
+    <section
+      class="flex flex-col items-stretch justify-center text-center md:mt-4 md:pt-4"
+    >
+      <h2 class="my-6 text-4xl font-extrabold text-gray-800">
+        Custom Shopify Solutions for Real Brands
+      </h2>
+
+      <h3 class="text-xl font-extrabold text-gray-700">
+        Trusted by E-commerce Leaders
+      </h3>
+
+      <div
+        class="my-10 grid grid-cols-2 justify-items-center gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8"
+      >
+        {
+          realBrancs.map((realbrand, index) => (
+            <Picture
+              src={realbrand.src}
+              alt={realbrand.alt || `Brand image ${index + 1}`}
+              class="h-auto max-w-30 object-contain"
+              loading="lazy"
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <section
+      class="flex flex-col items-stretch justify-center text-center md:mt-4 md:pt-4"
+    >
+      <h2 class="my-6 text-4xl font-extrabold text-gray-800">
+        Why Shugert is Your Trusted Shopify Partner
+      </h2>
+
+      <p class="text-lg text-gray-700">
+        Since 2016, we’ve worked on 600+ Shopify stores, solving common (and
+        not-so-common) challenges. From site speed to conversion, our certified
+        Shopify experts focus on tangible results that drive your bottom line.
+      </p>
+
+      <p class="mt-2 text-lg text-gray-700">
+        Below are some of our most in-demand Shopify tasks for store owners
+        looking to grow.
+      </p>
+
+      <div class="my-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          cardImages.map((cardImage, index) => (
+            <div class="flex flex-col items-center rounded-2xl bg-[#dcfaf3] text-center shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+              <h3 class="p-4 text-lg font-semibold text-gray-800">
+                {cardImage.heading}
+              </h3>
+              <Picture
+                src={cardImage.src}
+                alt={cardImage.heading || `Card image ${index + 1}`}
+                class="h-auto max-w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex justify-center space-x-4">
+        <a
+          href="https://clients.shugert.com.mx/public-forms/68370ba993ff67d7ddb34c8f"
+          aria-label="Get a Free Quote"
+        >
+          <button
+            class="group relative h-14 items-center justify-center rounded-4xl bg-[#061C3E] font-semibold shadow-md hover:bg-[#044080] hover:shadow-lg focus:ring-2 focus:ring-blue-300"
+          >
+            <div
+              class="items-center justify-center px-8 text-lg text-white uppercase"
+            >
+              Get a Free Quote
+            </div>
+          </button>
+        </a>
+      </div>
+    </section>
+
+    <section
+      class="flex flex-col items-stretch justify-center text-center md:mt-4 md:pt-4"
+    >
+      <h2 class="my-6 text-4xl font-extrabold text-gray-800">
+        Benefits of Working with Shugert
+      </h2>
+
+      <p class="text-lg text-gray-700">
+        With over 1,200 successful task completions, we combine creativity,
+        technical expertise, and data-driven insights to help your Shopify store
+        thrive. Here’s how we stand apart:
+      </p>
+
+      <div class="my-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          benefitCards.map((benefitCard, index) => (
+            <div class="flex flex-col items-center rounded-2xl bg-[#f9f9f9] p-6 text-center shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+              <h3 class="mb-4 text-xl font-bold text-gray-800">
+                {benefitCard.title}
+              </h3>
+              <p class="text-gray-600">{benefitCard.text}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="my-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          benefitsExplained.map((benefitExplained, index) => (
+            <div class="flex flex-col items-center p-6 text-center">
+              <Picture
+                src={benefitExplained.src}
+                alt={benefitExplained.title || `Card image ${index + 1}`}
+                class="h-auto max-w-sm object-contain"
+                loading="lazy"
+              />
+              <h3 class="mb-4 text-xl font-bold text-gray-800">
+                {benefitExplained.title}
+              </h3>
+              <p class="text-gray-600">{benefitExplained.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section
+      class="flex flex-col items-stretch justify-center text-center md:mt-4 md:pt-4"
+    >
+      <h2 class="my-6 text-4xl font-extrabold text-gray-800">
+        Small Tasks. Simple Pricing.
+      </h2>
+
+      <p class="text-lg text-gray-700">
+        From quick theme tweaks to ongoing support, select the bundle that keeps
+        your Shopify store performing at its best.
+      </p>
+
+      <div class="mt-6 flex justify-center space-x-4">
+        <a
+          href="https://clients.shugert.com.mx/public-forms/68370ba993ff67d7ddb34c8f"
+          aria-label="Create Your Free Account Now"
+        >
+          <button
+            class="group relative flex h-14 items-center justify-center rounded-4xl bg-[#3282b8] px-8 text-lg font-semibold text-white uppercase shadow-md transition-transform duration-300 hover:scale-105 hover:bg-[#044080] hover:shadow-lg focus:ring-2 focus:ring-blue-300"
+          >
+            Create Your Free Account Now
+          </button>
+        </a>
+      </div>
+
+      <div
+        class="mt-8 flex flex-col space-y-8 text-left md:flex-row md:space-y-0"
+      >
+        <div class="flex-1">
+          <h3 class="mb-4 text-2xl font-bold text-gray-800">
+            Our Development Process
+          </h3>
+          <p class="text-gray-700">
+            We begin by mapping out your goals and charting a clear plan. Our
+            team then executes each phase—design, development, and
+            deployment—while keeping you in the loop. Post-launch, we provide
+            training and ongoing support so you’re never left behind.
+          </p>
+        </div>
+        <div class="flex-1">
+          <h3 class="mb-4 text-2xl font-bold text-gray-800">
+            Comprehensive Shopify Services
+          </h3>
+          <ul class="list-disc space-y-2 pl-5 text-gray-700">
+            <li>
+              <strong>Custom Store Builds:</strong> Unique Shopify themes & headless
+              setups
+            </li>
+            <li>
+              <strong>Migrations:</strong> Seamless moves from WooCommerce or Magento
+            </li>
+            <li>
+              <strong>Support & Maintenance:</strong> Keep your store glitch-free
+            </li>
+            <li>
+              <strong>CRO & SEO:</strong> Turn visitors into buyers & boost rankings
+            </li>
+            <li>
+              <strong>App Integration:</strong> Add powerful functionality
+            </li>
+            <li>
+              <strong>Performance Optimization:</strong> Faster page loads, happier
+              customers
+            </li>
+            <li>
+              <strong>Security & Compliance:</strong> Protect data with enterprise-grade
+              best practices
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 space-y-8 text-center">
+        <h3 class="mb-4 text-2xl font-bold text-gray-800">How It Works</h3>
+
+        <div
+          class="my-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {
+            HowItWorkCards.map((card, index) => (
+              <div class="flex flex-col items-center rounded-2xl bg-[#f9f9f9] p-6 text-center shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#3282b8] text-lg font-bold text-white">
+                  {card.step}
+                </div>
+                <h3 class="mb-4 text-xl font-bold text-gray-800">
+                  {card.title}
+                </h3>
+                <p class="mb-4 text-gray-600">{card.text}</p>
+                <Picture
+                  src={card.src}
+                  alt={card.title || `Card image ${index + 1}`}
+                  class="h-auto max-w-sm object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="flex flex-col items-stretch justify-center text-center md:mt-4 md:pt-4"
+    >
+      <h2 class="my-6 text-4xl font-extrabold text-gray-800">
+        Frequently Asked Questions
+      </h2>
+
+      <p class="text-lg text-gray-700">
+        Answers from the Shugert team in West New York & Barcelona
+      </p>
+
+      <div class="mt-10 space-y-4">
+        {
+          FAQTexts.map((FAQText) => (
+            <details class="group rounded-lg bg-[#FAFAFA] shadow-md transition hover:shadow-lg">
+              <summary class="flex cursor-pointer items-center justify-between rounded-lg bg-[#FAFAFA] p-4 font-semibold text-gray-800 transition hover:bg-gray-100">
+                {FAQText.title}
+                <svg
+                  class="h-5 w-5 text-gray-500 transition-transform group-open:rotate-45"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4v16m8-8H4"
+                  />
+                </svg>
+              </summary>
+              <div class="mt-2 bg-[#FAFAFA] px-4 pb-4 text-left text-gray-700">
+                {FAQText.text}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+  </Container>
+
+  <section
+    class="my-6 flex flex-col items-stretch justify-center bg-[#f5f8fb] py-6 text-center md:py-10"
+  >
+    <Container>
+      <h2 class="text-4xl font-extrabold text-gray-800">
+        Join 600+ Thriving Shopify Merchants
+      </h2>
+
+      <p class="text-lg text-gray-700">
+        Whether you’re migrating from WooCommerce or launching a new store, our
+        certified Shopify experts will optimize your site, boost conversions,
+        and accelerate growth.
+      </p>
+
+      <div class="mt-6 flex justify-center space-x-4">
+        <a
+          href="mailto:hello@shugert.com.mx"
+          aria-label="Create Your Free Account Now"
+        >
+          <button
+            class="group relative flex h-14 items-center justify-center rounded-4xl bg-[#061C3E] px-8 text-lg font-semibold text-white uppercase shadow-md transition-transform duration-300 hover:scale-105 hover:bg-[#044080] hover:shadow-lg focus:ring-2 focus:ring-blue-300"
+          >
+            Contact Our Shopify Experts Today
+          </button>
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <Container>
+    <section
+      class="my-6 flex flex-col items-stretch justify-center py-6 text-center md:py-10"
+      aria-labelledby="why-choose-shugert"
+    >
+      <h2 id="why-choose-shugert" class="text-4xl font-extrabold text-gray-800">
+        Why Choose Shugert Marketing for Your Shopify Store?
+      </h2>
+
+      <p class="mt-4 text-lg text-gray-700">
+        As a certified Shopify Partner, we combine expert design, development,
+        and marketing to boost performance, profitability, and user experience.
+        Our cross-functional team handles everything from SEO strategy to custom
+        app integrations.
+      </p>
+
+      <div
+        class="mt-6 grid grid-cols-1 gap-4 text-left text-gray-700 md:mx-auto md:max-w-3xl md:grid-cols-2"
+      >
+        <div class="flex items-start space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-blue-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span
+            >Mobile-friendly redesigns that engage customers on any device.</span
+          >
+        </div>
+        <div class="flex items-start space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-blue-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span
+            >Advanced theme customizations tailored to your brand identity.</span
+          >
+        </div>
+        <div class="flex items-start space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-blue-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>Social-media-driven campaigns to drive targeted traffic.</span>
+        </div>
+        <div class="flex items-start space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-blue-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>End-to-end Shopify solutions for sustainable growth.</span>
+        </div>
+        <div class="flex items-start space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-blue-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span
+            >Secure, high-performance stores with enterprise-grade best
+            practices.</span
+          >
+        </div>
+        <div class="flex items-start space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-blue-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>Ongoing support to help you scale without setbacks.</span>
+        </div>
+      </div>
+
+      <p class="mt-4 text-lg font-medium text-gray-700">
+        Ready to partner with Shopify experts who understand your goals? Let’s
+        optimize your store for conversions, speed, and long-term success.
+      </p>
+
+      <div class="mt-8 flex justify-center">
+        <a
+          href="mailto:hello@shugert.com.mx"
+          aria-label="Contact Our Shopify Experts"
+          class="group relative inline-flex h-14 items-center justify-center rounded-4xl bg-[#061C3E] px-8 text-lg font-semibold text-white uppercase shadow-md transition-transform duration-300 hover:scale-105 hover:bg-[#044080] hover:shadow-lg focus:ring-2 focus:ring-blue-300"
+        >
+          Contact Our Shopify Experts
+        </a>
+      </div>
+    </section>
+  </Container>
+</Layout>

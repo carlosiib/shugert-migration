@@ -5,47 +5,47 @@ import icon3 from "../assets/shugert/Behavior_Analysis_icon.png";
 import icon4 from "../assets/shugert/Predictive_Analysis_icon.png";
 import { Picture } from "astro:assets";
 
-
+const benefitsExplained = [
+  {
+    src: icon1,
+    title: "Lead Scoring",
+    text: "We improve conversion rates of sales based on a lead rating predictive algorithm.",
+  },
+  {
+    src: icon2,
+    title: "Reduce Customer Churn",
+    text: "We analyze and significantly reduce customer churn to streamline risk prediction and intervention models.",
+  },
+  {
+    src: icon3,
+    title: "Customer Behavior Analysis",
+    text: "We identify and define the sales projections of specific customer segments and microsegments.",
+  },
+  {
+    src: icon4,
+    title: "Predictive Analytics",
+    text: "We turn your data into insights that helps you make better decisions and improve your business.",
+  },
+];
 ---
 
 <div>
-  <h2 class="text-center text-slate-500">
-    Trusted by popular startups you know
-  </h2>
-  <div
-    class="flex gap-x-8 gap-y-4 md:gap-20 lg:gap-28 items-center justify-center mt-6 flex-wrap">
-    <div class="text-gray-500 my-2 h-7 md:h-9">
-      <Picture
-      src={icon1}
-      alt="Feature Image"
-      formats={["avif", "webp"]}
-      loading="lazy"
-    />
-    </div>
-
-    <div class="text-gray-500 my-2 h-7 md:h-9">
-      <Picture
-      src={icon2}
-      alt="Feature Image"
-      formats={["avif", "webp"]}
-      loading="lazy"
-    />
-    </div>
-    <div class="text-gray-500 my-2 h-7 md:h-9">
-      <Picture
-      src={icon3}
-      alt="Feature Image"
-      formats={["avif", "webp"]}
-      loading="lazy"
-    />
-    </div>
-    <div class="text-gray-500 my-2 h-7 md:h-9">
-      <Picture
-      src={icon4}
-      alt="Feature Image"
-      formats={["avif", "webp"]}
-      loading="lazy"
-    />
-    </div>
+  <div class="my-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      benefitsExplained.map((benefitExplained, index) => (
+        <div class="flex flex-col items-center p-6 text-center">
+          <Picture
+            src={benefitExplained.src}
+            alt={benefitExplained.title || `Card image ${index + 1}`}
+            class="h-auto max-w-sm object-contain"
+            loading="lazy"
+          />
+          <h3 class="mb-4 text-xl font-bold text-gray-800">
+            {benefitExplained.title}
+          </h3>
+          <p class="text-gray-600">{benefitExplained.text}</p>
+        </div>
+      ))
+    }
   </div>
 </div>

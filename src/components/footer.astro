@@ -16,16 +16,7 @@ import img6 from "../assets/shugert/medals/B2B_Companies_LatinAmerica_2021.png";
 import img7 from "../assets/shugert/medals/B2B_Companies_LatinAmerica_2021.png";
 import img8 from "../assets/shugert/medals/B2B_Companies_LatinAmerica_2021.png";
 
-const images = [
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  img7,
-  img8,
-];
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const footermenu = {
   company: [
@@ -97,13 +88,11 @@ const footermenu = {
 };
 ---
 
-<footer class:list={["py-14 bg-[#000]", margin && "mt-10"]}>
+<footer class:list={["bg-[#000] py-14", margin && "mt-10"]}>
   <Container>
-    <div
-      class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-32">
-      <div
-        class="sm:col-span-2 md:col-span-3 lg:col-span-2">
-        <a href="/" class="text-lg flex items-center">
+    <div class="grid gap-32 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div class="sm:col-span-2 md:col-span-3 lg:col-span-2">
+        <a href="/" class="flex items-center text-lg">
           <div class="w-56">
             <Picture
               src={logoFooter}
@@ -115,14 +104,13 @@ const footermenu = {
             />
           </div>
         </a>
-        <div
-          class="pt-8 grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="grid grid-cols-2 gap-3 pt-8 md:grid-cols-3">
           {
             images.map((src, index) => (
               <Picture
                 src={src}
                 alt={`Footer image ${index + 1}`}
-                class="w-full object-contain rounded-lg shadow-lg"
+                class="w-full rounded-lg object-contain shadow-lg"
               />
             ))
           }
@@ -131,56 +119,50 @@ const footermenu = {
 
       <div class="sm:col-span-3 lg:col-span-3">
         <div>
-          <h3
-            class="font-medium text-white xl:text-left xl:text-3xl">
-            We collaborate with ambitious brands and people;
-            we’d love to build something great together.
+          <h3 class="font-medium text-white xl:text-left xl:text-3xl">
+            We collaborate with ambitious brands and people; we’d love to build
+            something great together.
           </h3>
           <a
             href="mailto:hello@shugert.com.mx"
-            class="block mt-4 text-white font-semibold underline xl:text-2xl hover:underline">
+            class="mt-4 block font-semibold text-white underline hover:underline xl:text-2xl"
+          >
             hello@shugert.com.mx
           </a>
         </div>
-        <div
-          class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
+        <div class="mt-16 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           <div>
-            <h3 class="font-bold text-xl text-white">
-              Offices
-            </h3>
-            <div class="flex flex-col mt-3">
+            <h3 class="text-xl font-bold text-white">Offices</h3>
+            <div class="mt-3 flex flex-col">
               <p class="text-white">
-                USA —<br />27 63RD St APT 1<br />West New
-                York <br />NJ 07093, United States<br />
+                USA —<br />27 63RD St APT 1<br />West New York <br />NJ 07093,
+                United States<br />
               </p>
               <p class="text-white">
-                Spain —<br />C/ de Cristóbal de Moura, 49<br
-                />Barcelona, 08019
+                Spain —<br />C/ de Cristóbal de Moura, 49<br />Barcelona, 08019
               </p>
             </div>
           </div>
           <div class="w-1/2">
-            <h3 class="font-bold text-xl text-white">
-              Let's talk
-            </h3>
-            <div class="flex flex-col mt-3">
+            <h3 class="text-xl font-bold text-white">Let's talk</h3>
+            <div class="mt-3 flex flex-col">
               <a
                 href="mailto:hello@shugert.com.mx"
-                class="text-white text-lg font-semibold underline hover:underline">
+                class="text-lg font-semibold text-white underline hover:underline"
+              >
                 hello@shugert.com.mx
               </a>
             </div>
           </div>
           <div>
-            <h3 class="font-bold text-xl text-white">
-              Company
-            </h3>
-            <div class="flex flex-col mt-3">
+            <h3 class="text-xl font-bold text-white">Company</h3>
+            <div class="mt-3 flex flex-col">
               {
                 footermenu.company.map((item) => (
                   <a
                     href={item.path || "#"}
-                    class="py-2 text-sm text-white hover:text-[#bbe1fa]">
+                    class="py-2 text-sm text-white hover:text-[#bbe1fa]"
+                  >
                     {item.title}
                   </a>
                 ))
@@ -203,12 +185,11 @@ const footermenu = {
     </div>
   </Container>
 
-  <div class="mt-8 pt-4 px-5">
+  <div class="mt-8 px-5 pt-4">
     <Container>
-      <p
-        class="text-center text-sm text-slate-600 [text-wrap:balance]">
-        Copyright © {new Date().getFullYear()} Shugert Marketing
-        & Analytics. All rights reserved.
+      <p class="text-center text-sm [text-wrap:balance] text-slate-600">
+        Copyright © {new Date().getFullYear()} Shugert Marketing & Analytics. All
+        rights reserved.
       </p>
       <!-- <p class="text-center text-xs text-slate-600 mt-2">
         <a href="/terms" class="hover:text-indigo-500"> Terms</a> ・ <a

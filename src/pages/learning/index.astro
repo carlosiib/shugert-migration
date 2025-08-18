@@ -1,0 +1,93 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import { Picture } from "astro:assets";
+
+import shopifyCollabsImage from "@assets/services/shopify-collabs.jpg";
+
+const learningCenterPosts = [
+  {
+    title: "How to Use Shopify Collabs",
+    url: "how-to-use-shopify-collabs",
+    image: shopifyCollabsImage,
+    altText: "Learn how to use Shopify Collabs",
+  },
+  {
+    title: "Shopify Functions: Customization for Your Store",
+    url: "shopify-functions",
+    image: shopifyCollabsImage,
+    altText: "Discover Shopify Functions for store customization",
+  },
+];
+---
+
+<Layout
+  title="Learning Center"
+  description="Explore our Learning Center for Shopify tutorials, marketing analytics, SEO tips, and CRO strategies to grow your eCommerce business."
+  footerMargin={false}
+>
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Learning Center</Fragment>
+      <Fragment slot="desc">
+        Explore our latest articles on Shopify tutorials, marketing analytics,
+        SEO, and CRO tips for eCommerce businesses.
+      </Fragment>
+    </Sectionhead>
+  </Container>
+
+  <section class="mt-16 flex justify-center bg-[#F9F9F9]">
+    <Container>
+      <ul class="mb-2 flex flex-col p-4 md:mb-0 md:flex-row">
+        {
+          learningCenterPosts.map((post) => (
+            <li class="m-4 rounded-2xl border border-[#ddd] bg-white text-center transition-transform duration-500 hover:-translate-y-2 hover:shadow-lg">
+              <a
+                href={`/learning/${post.url}`}
+                aria-label={`Read more about ${post.title}`}
+              >
+                <div class="aspect-video w-full overflow-hidden rounded-t-2xl">
+                  <Picture
+                    src={post.image}
+                    alt={post.altText}
+                    format="webp"
+                    sizes="(max-width: 800px) 100vw, 800px"
+                    width={800}
+                    height={600}
+                    loading="eager"
+                    decoding="sync"
+                    class="h-full w-full object-cover"
+                  />
+                </div>
+                <div class="my-2">
+                  <h2 class="text-xl font-semibold">{post.title}</h2>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Container>
+  </section>
+
+  <section
+    class="flex flex-col items-center justify-center bg-[#146FF8] py-8 text-white"
+  >
+    <div class="text-center">
+      <h1 class="text-3xl font-bold">
+        Ready to Elevate Your eCommerce Business?
+      </h1>
+      <p class="mt-4 text-lg font-medium">
+        Contact our Shopify Experts today for a free consultation.
+      </p>
+      <a
+        class="mt-6 inline-block rounded-lg bg-white px-6 py-3 font-semibold text-[#146FF8] uppercase transition hover:bg-[#3282b8]"
+        href="/contact"
+        aria-label="Get Started with Shopify Experts"
+      >
+        Get Started
+      </a>
+    </div>
+  </section>
+</Layout>

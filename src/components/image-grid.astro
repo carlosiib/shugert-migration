@@ -28,26 +28,22 @@ imageArray.forEach((item) => {
 ---
 
 <div
-  class="mt-24 mb-[48px] max-w-3xl mx-auto flex flex-col items-center justify-center px-[25px]">
-  <h2 class="text-4xl font-black text-center">
+  class="mx-auto mt-24 mb-[48px] flex max-w-3xl flex-col items-center justify-center px-[25px]"
+>
+  <h2 class="text-center text-4xl font-black">
     {header}
   </h2>
-  <p
-    class="text-[16px] mt-4 text-center text-black leading-[1.5]">
+  <p class="mt-4 text-center text-[16px] leading-[1.5] text-black">
     {text}
   </p>
 </div>
 
 <div
-  class="max-w-[1200px] mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-[48px] px-[25px] justify-items-center">
+  class="mx-auto grid max-w-[1200px] justify-items-center gap-[48px] px-[25px] sm:grid-cols-2 md:grid-cols-3"
+>
   {
     imageArray.map((item) => (
-      <div
-        class="transform hover:-translate-y-[4px] 
-        filter hover:saturate-[120%] 
-        box-shadow hover:shadow-[5px_5px_20px_5px_rgba(0,0,0,0.07)] 
-       transition-all ease-[cubic-bezier(0.075,0.82,0.165,1)]
-        duration-1000 w-fit border border-solid border-radius rounded-[5px] border-[hsla(0,0%,60.7%,0.3)]">
+      <div class="box-shadow border-radius w-fit transform rounded-[5px] border border-solid border-[hsla(0,0%,60.7%,0.3)] filter transition-all duration-1000 ease-[cubic-bezier(0.075,0.82,0.165,1)] hover:-translate-y-[4px] hover:shadow-[5px_5px_20px_5px_rgba(0,0,0,0.07)] hover:saturate-[120%]">
         <Picture src={images[item.src]()} alt={item.alt} />
       </div>
     ))

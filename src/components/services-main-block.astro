@@ -1,8 +1,7 @@
 ---
 import Container from "@components/container.astro";
-import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
-import servicesImage from "/src/assets/shugert/Services_Shugert.png";
+import { Picture } from "astro:assets";
 
 import type { ImageMetadata } from "astro";
 
@@ -18,42 +17,39 @@ if (!images[sectionInfo.image])
   );
 ---
 
-<Container>
-  <main class="grid lg:grid-cols-5 place-items-center relative justify-items-center pt-[45px] pb-[45px]">
-    <div class=" md:max-w-max lg:col-span-2 place-self-start mt-10">
-      <hgroup>
-        <h3 class="text-sm [text-wrap:balance] text-start">
-          {sectionInfo.category}
-        </h3>
-        <h1 class="font-bold lg:tracking-tight lg:text-start text-5xl">
-          {sectionInfo.header}
-        </h1>
-        <h2 class="text-xl mt-4 lg:[text-wrap:balance] text-start">
-          {sectionInfo.mainText}
-        </h2>
-      </hgroup>
-
-      <ul class="grid grid-cols-2 gap-9 mt-[48px]">
-        {
-          sectionInfo.grid.map((value) => (
-            <li>
-              <h4 class="font-medium text-xl">{value.title}</h4>
-              <p>{value.text}</p>
-            </li>
-          ))
-        }
-      </ul>
+<section class="flex flex-col items-stretch justify-evenly md:flex-row">
+  <div class="place-self-center md:p-5">
+    <div>
+      <h1 class="text-md mb-6 font-semibold tracking-tight text-black">
+        {sectionInfo.category}
+      </h1>
+      <h1 class="text-4xl font-extrabold lg:text-5xl">
+        {sectionInfo.header}
+      </h1>
+      <p class="mt-4 max-w-xl text-lg text-black lg:text-xl">
+        {sectionInfo.mainText}
+      </p>
     </div>
 
-    <div class="py-3 lg:col-span-3 max-w-[600px] mx-1">
-      <Image
-        src={images[sectionInfo.image]()}
-        alt={sectionInfo.imageAlt}
-        sizes="(max-width: 600px) 100vw, 50vw"
-        widths={[240, 540, 720]}
-        loading={imageLoad}
-        fetchpriority="high"
-      />
-    </div>
-  </main>
-</Container>
+    <ul class="mt-10 grid grid-cols-2 gap-8">
+      {
+        sectionInfo.grid.map((value) => (
+          <li>
+            <h4 class="text-xl font-semibold">{value.title}</h4>
+            <p class="text-lg">{value.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="mt-10 place-self-start md:mt-0">
+    <Picture
+      src={images[sectionInfo.image]()}
+      alt={sectionInfo.imageAlt}
+      format={"webp"}
+      loading={imageLoad}
+      class="h-auto lg:max-w-2xl"
+    />
+  </div>
+</section>

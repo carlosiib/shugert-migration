@@ -1,0 +1,148 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Pagination from "@components/pagination.astro";
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+
+import OurWorkClientsShugert from "@assets/shugert/Clients_Shugert.png";
+import OurWorkTogether from "@assets/shugert/our-work-together.svg";
+import OurWorkCircleButton from "@assets/shugert/circle-button.svg";
+import type { PaginateFunction } from "astro";
+
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}) {
+  const PAGE_SIZE = 14;
+
+  const allPosts = await getCollection("portfolio");
+
+  const allSortedPosts = allPosts.sort((a, b) => a.data.id - b.data.id);
+
+  return paginate(allSortedPosts, {
+    pageSize: PAGE_SIZE,
+  });
+}
+
+const { page } = Astro.props;
+const metaDescription =
+  "Explore our portfolio showcasing satisfied customers and innovative solutions for diverse markets.";
+---
+
+<Layout title="Portfolio" description={metaDescription}>
+  <Container>
+    <section
+      class="flex flex-col items-stretch justify-evenly md:m-4 md:flex-row md:p-4"
+    >
+      <div class="place-self-center md:p-5">
+        <h1 class="text-md mb-6 font-semibold tracking-tight text-black">
+          We have offered all kinds of solutions for all types of markets
+        </h1>
+        <h1 class="text-5xl font-extrabold lg:text-7xl">
+          Satisfied <br /> customers
+        </h1>
+        <p class="mt-4 max-w-xl text-lg text-black lg:text-xl">
+          Regardless of the subject, tone, or geographic location, our team will
+          search and execute the most efficient solutions.
+        </p>
+      </div>
+      <div class="mt-10 place-self-center md:mt-0">
+        <Picture
+          src={OurWorkClientsShugert}
+          alt="Our Work Clients Shugert"
+          format={"webp"}
+          loading="eager"
+          class="h-auto lg:max-w-sm"
+        />
+      </div>
+    </section>
+
+    <section>
+      <div class="mt-10 w-full md:mt-0 md:p-5">
+        <h1 class="text-3xl font-extrabold md:max-w-1/2 lg:text-4xl">
+          These are only a small sample of work with current clients, check out
+          our blog and social media for our own content.
+        </h1>
+      </div>
+    </section>
+  </Container>
+
+  <section class="p-4">
+    <main class="mt-16">
+      <ul class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        {
+          page.data.map((post, index) => (
+            <li>
+              <a href={`/portfolio/${post.slug}`}>
+                <div class="aspect-video w-full">
+                  <Picture
+                    src={post.data.image.src}
+                    alt={post.data.image.alt}
+                    sizes="(max-width: 800px) 100vw, 800px"
+                    width={800}
+                    height={600}
+                    loading={index <= 2 ? "eager" : "lazy"}
+                    decoding={index <= 2 ? "sync" : "async"}
+                    class="h-full w-full rounded bg-white object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
+                    transition:name={`post-img-${post.slug}`}
+                  />
+                  <div class="mt-4">
+                    <span class="text-xs font-medium tracking-wider text-blue-400 uppercase">
+                      {post.data.category}
+                    </span>
+
+                    <h2 class="mt-1 text-xl leading-snug font-semibold tracking-tight">
+                      {post.data.title}
+                    </h2>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <Pagination url={page.url} />
+    </main>
+  </section>
+
+  <section class="flex flex-row md:items-end">
+    <div class="relative hidden overflow-hidden md:block">
+      <Picture
+        src={OurWorkTogether}
+        alt="Our Work Together Background"
+        width={800}
+        height={300}
+        class="object-fill opacity-20"
+      />
+    </div>
+    <div
+      class="mx-4 flex flex-col items-start md:mx-0 md:flex-row md:items-center"
+    >
+      <div class="md:px-8">
+        <h1 class="text-lg font-semibold tracking-tight text-black">
+          Let's Work Together
+        </h1>
+        <h1
+          class="text-4xl font-bold tracking-tight text-black sm:my-5 md:my-0"
+        >
+          We can help your business grow
+        </h1>
+        <p class="mb-5 text-lg md:mb-0">
+          Let's have a friendly chat to find out
+        </p>
+      </div>
+      <div>
+        <a href="/contact">
+          <Picture
+            class=""
+            src={OurWorkCircleButton}
+            alt="Contact Us Button"
+            width={75}
+          />
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
